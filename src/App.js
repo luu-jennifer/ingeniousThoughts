@@ -1,10 +1,15 @@
+// import firebaseConfig from "./firebase";
+// import { useState, useEffect } from "react";
+import "./App.scss";
+import Header from "./components/Header";
+import Main from "./components/Main";
 
-import './App.css';
 
 function App() {
   return (
     <div className="App">
-
+      <Header />
+      <Main />
     </div>
   );
 }

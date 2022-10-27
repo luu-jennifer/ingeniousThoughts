@@ -1,0 +1,6 @@
+@use "./partials/variables" as *;
+
+.App {
+  text-align: center;
+  background-color: $black;
+}
