@@ -15,3 +15,6 @@ function App() {
 }
 
 export default App;
+
+// TODO:
+// 1. Update meta data and favicon. Figure out manifest.json and robots.txt
