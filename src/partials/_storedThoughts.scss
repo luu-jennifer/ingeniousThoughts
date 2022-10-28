@@ -13,6 +13,7 @@
     &:focus {
       background-color: $white;
       color: $black;
+      cursor: pointer;
     }
   }
   ul {
@@ -27,9 +28,14 @@
       align-items: center;
       border: 1px solid $primaryColor;
       border-radius: 5px;
-      padding: 1rem;
-      margin: 1rem 0;
+      padding: 1rem .25rem;
+      margin: 1rem .75rem;
       width: 30%;
+      &:hover,
+      &:focus {
+        box-shadow: .1rem .1rem 1rem $white;
+        cursor: crosshair;
+      }
       h3 {
         color: $secondaryColor;
       }

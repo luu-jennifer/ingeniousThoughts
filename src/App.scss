@@ -2,6 +2,10 @@
 @use "./partials/typography" as *;
 
 .App {
+  max-width: 80%;
   text-align: center;
   background-color: $black;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: $font;
 }
