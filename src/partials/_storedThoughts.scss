@@ -1,7 +1,7 @@
+//storedThoughts
 @use "./variables" as *;
 
 .storedThoughts {
-  border: 2px solid $primaryColor;
   button {
     padding: 0.5rem;
     margin: 0.5rem 0;
@@ -14,6 +14,7 @@
       background-color: $white;
       color: $black;
       cursor: pointer;
+      transition: .15s;
     }
   }
   ul {
@@ -26,18 +27,22 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      flex-wrap: wrap;
       border: 1px solid $primaryColor;
       border-radius: 5px;
-      padding: 1rem .25rem;
-      margin: 1rem .75rem;
+      padding: .5rem .1rem;
+      margin: .5rem 1rem;
       width: 30%;
       &:hover,
       &:focus {
         box-shadow: .1rem .1rem 1rem $white;
         cursor: crosshair;
+        transition: .2s;
       }
       h3 {
         color: $secondaryColor;
+        padding: 1rem;
+        margin: .5rem auto;
       }
     }
   }

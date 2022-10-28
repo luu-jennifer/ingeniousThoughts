@@ -42,7 +42,7 @@ const StoredThoughts = () => {
   return(
     <section className="storedThoughts">
       {/* this will be the data from firebase mounted */}
-      <h2>Stored Thoughts from Firebase</h2>
+      <h2>🤔💭</h2>
       <ul>
         {
         /* //loop though the array of thoughts and render each thought to the DOM */

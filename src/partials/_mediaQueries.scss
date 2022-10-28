@@ -1,0 +1,19 @@
+@use "./variables" as *;
+
+@media (max-width: 625px) {
+  html {
+    font-size: 90%;
+  }
+}
+
+@media (max-width: 500px) {
+  html {
+    font-size: 60%;
+  }
+}
+
+@media (max-width: 300px) {
+  html {
+    font-size: 40%;
+  }
+}

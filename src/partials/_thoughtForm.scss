@@ -1,10 +1,12 @@
+//thoughtForm
 @use "./variables" as *;
 
 .thoughtForm {
-  border: 5px solid $tertiaryColor;
   padding: 1rem 0;
+  max-width: 60%;
+  margin: 0 auto;
   input {
-    width: 50%;
+    width: 100%;
     padding: 0.5rem;
     margin: 0.5rem 0;
     border: 1px solid $tertiaryColor;

@@ -1,3 +1,4 @@
+//baseStyles
 @use "./variables" as *;
 
 
@@ -28,4 +29,18 @@ h2 {
 h3 {
   color: $primaryColor;
   padding: .23rem;
+}
+
+.App {
+  max-width: 80%;
+  text-align: center;
+  background-color: $black;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: $font;
+}
+
+button,
+input {
+  font-size: 100%;
 }

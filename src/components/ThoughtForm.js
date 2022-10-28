@@ -3,8 +3,6 @@ import firebaseConfig from "../firebase";
 // NPM modules
 import { useState } from "react";
 import { getDatabase, push, ref } from "firebase/database";
-// styles
-import "../partials/_thoughtForm.scss";
 
 // component to add thoughts to the database
 const ThoughtForm = () => {
@@ -25,10 +23,15 @@ const ThoughtForm = () => {
   const handleSubmit = (e) => {
     // prevent the page from reloading
     e.preventDefault();
-    // push the user's input to firebase
-    push(dbRef, newThought);
-    // clear the input field
-    setNewThought("");
+    if (newThought !== "") {
+      // push the user's input to the database
+      push(dbRef, newThought);
+      // clear the input field
+      setNewThought("");
+    } else {
+      // Prevent empty submission. alert the user to enter a thought
+      alert("Please type in your thought.");
+    };
   };
 
   

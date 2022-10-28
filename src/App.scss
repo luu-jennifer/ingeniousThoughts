@@ -1,11 +1,7 @@
 @use "./partials/variables" as *;
-@use "./partials/typography" as *;
-
-.App {
-  max-width: 80%;
-  text-align: center;
-  background-color: $black;
-  margin: 0 auto;
-  padding: 2rem;
-  font-family: $font;
-}
+@use "./partials/baseStyles";
+@use "./partials/nav";
+@use "./partials/header";
+@use "./partials/storedThoughts";
+@use "./partials/thoughtForm";
+@use "./partials/mediaQueries";

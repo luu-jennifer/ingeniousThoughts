@@ -1,0 +1,155 @@
+html {
+  font-size: 125%;
+  background-color: #000;
+}
+
+p {
+  color: hotpink;
+  line-height: 2rem;
+  border: 1px solid hotpink;
+}
+
+a {
+  color: skyblue;
+  text-decoration: none;
+}
+a:hover, a:focus {
+  color: hotpink;
+}
+
+h2 {
+  color: skyblue;
+}
+
+h3 {
+  color: hotpink;
+  padding: 0.23rem;
+}
+
+.App {
+  max-width: 80%;
+  text-align: center;
+  background-color: #000;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: "georgia", serif;
+}
+
+button,
+input {
+  font-size: 100%;
+}
+
+.help {
+  text-align: left;
+  max-width: 80%;
+}
+.help button {
+  border: 2px solid #fff;
+  color: #fff;
+  background-color: rebeccaPurple;
+  margin: 0 auto;
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+.help button:hover, .help button:focus {
+  background-color: #000;
+  border: 2px solid rebeccaPurple;
+}
+
+header {
+  margin: 0 auto;
+  color: rebeccaPurple;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+header h1 {
+  padding: 1rem;
+  margin: 1rem auto;
+}
+
+.storedThoughts button {
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  background-color: #000;
+  color: #fff;
+}
+.storedThoughts button:hover, .storedThoughts button:focus {
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+  transition: 0.15s;
+}
+.storedThoughts ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.storedThoughts ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 1px solid hotpink;
+  border-radius: 5px;
+  padding: 0.5rem 0.1rem;
+  margin: 0.5rem 1rem;
+  width: 30%;
+}
+.storedThoughts ul li:hover, .storedThoughts ul li:focus {
+  box-shadow: 0.1rem 0.1rem 1rem #fff;
+  cursor: crosshair;
+  transition: 0.2s;
+}
+.storedThoughts ul li h3 {
+  color: skyblue;
+  padding: 1rem;
+  margin: 0.5rem auto;
+}
+
+.thoughtForm {
+  padding: 1rem 0;
+  max-width: 60%;
+  margin: 0 auto;
+}
+.thoughtForm input {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border: 1px solid rebeccaPurple;
+  border-radius: 5px;
+}
+.thoughtForm button {
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  background-color: rebeccaPurple;
+  color: #fff;
+}
+.thoughtForm button:hover, .thoughtForm button:focus {
+  background-color: #fff;
+  color: rebeccaPurple;
+}
+
+@media (max-width: 625px) {
+  html {
+    font-size: 90%;
+  }
+}
+@media (max-width: 500px) {
+  html {
+    font-size: 60%;
+  }
+}
+@media (max-width: 300px) {
+  html {
+    font-size: 40%;
+  }
+}

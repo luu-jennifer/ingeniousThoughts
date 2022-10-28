@@ -1,32 +1,15 @@
+//header
 @use "./variables" as *;
 
 header {
+  margin: 0 auto;
   color: $tertiaryColor;
-  border: 2px solid $tertiaryColor;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   h1 {
     padding: 1rem;
-    border: 2px solid $white;
-  }
-  button {
-    border: 2px solid $white;
-    color: $white;
-    background-color: $tertiaryColor;
-    margin: 0 auto;
-    padding: .5rem;
-    border-radius: 10px;
-    &:hover,
-    &:focus {
-      background-color: $black;
-      border: 2px solid $tertiaryColor;
-      cursor: help;
-    }
-  }
-  .weather {
-    border: 1px solid $white;
-    padding: 1rem;
+    margin: 1rem auto;
   }
 }
