@@ -3,4 +3,26 @@
 header {
   color: $tertiaryColor;
   border: 2px solid $tertiaryColor;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  h1 {
+    padding: 1rem;
+    border: 2px solid $white;
+  }
+  button {
+    border: 2px solid $white;
+    color: $white;
+    background-color: $tertiaryColor;
+    margin: 0 auto;
+    padding: .5rem;
+    border-radius: 10px;
+    &:hover,
+    &:focus {
+      background-color: $black;
+      border: 2px solid $tertiaryColor;
+      cursor: help;
+    }
+  }
 }
