@@ -1,0 +1,38 @@
+@use "./variables" as *;
+
+.storedThoughts {
+  border: 2px solid $primaryColor;
+  button {
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border: 1px solid $white;
+    border-radius: 5px;
+    background-color: $black;
+    color: $white;
+    &:hover,
+    &:focus {
+      background-color: $white;
+      color: $black;
+    }
+  }
+  ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 1px solid $primaryColor;
+      border-radius: 5px;
+      padding: 1rem;
+      margin: 1rem 0;
+      width: 30%;
+      h3 {
+        color: $secondaryColor;
+      }
+    }
+  }
+}

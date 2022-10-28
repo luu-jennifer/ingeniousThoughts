@@ -1,0 +1,29 @@
+@use "./variables" as *;
+
+html {
+  font-size: 125%;
+  background-color: $black;
+}
+
+p {
+  color: $primaryColor;
+  line-height: 2rem;
+  border: 1px solid $primaryColor;
+}
+
+a {
+  color: $secondaryColor;
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    color: $primaryColor;
+  }
+}
+
+h2 {
+  color: $secondaryColor;
+}
+
+h3 {
+  color: $primaryColor;
+}

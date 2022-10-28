@@ -1,5 +1,6 @@
 @use "./variables" as *;
 
 header {
-  color: $primaryColor;
+  color: $tertiaryColor;
+  border: 2px solid $tertiaryColor;
 }

@@ -1,7 +1,13 @@
+import StoredThoughts from "./StoredThoughts";
+import ThoughtForm from "./ThoughtForm";
+
 const Main = () => {
   return (
     <div className="main">
-      <h2>What is your thought?</h2>
+      <main>
+        <ThoughtForm />
+        <StoredThoughts />
+      </main>
     </div>
   );
 }
