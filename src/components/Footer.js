@@ -1,8 +1,9 @@
 const Footer = () => {
   return (
     <footer>
-      <p>© 2022, ✨Developed by <a href="https://jencodes.com/" target="_blank">Jen Luu</a> @ Juno College of Technology</p>
+      <p>© 2022, ✨Developed by <a href="http://jencodes.com" target="_blank" rel="noopener noreferrer">Jen Luu</a> @ Juno College of Technology</p>
     </footer>
+
   )
 }
 
