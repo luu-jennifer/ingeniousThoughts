@@ -10,21 +10,23 @@ const Nav = () => {
   };
 
   return (
-    <nav className="help">
-      <button onClick={toggleAbout}>
-        {
-          showAbout 
-            ? "X" 
-            : "Help"
-            } 
-      </button>
-      <h3>
-        {
-          showAbout
-            ? "Type in your thoughts and click the button to share them with the world."
-            : ""
-        }
-      </h3>
+    <nav>
+      <div className="help">
+        <button onClick={toggleAbout}>
+          {
+            showAbout 
+              ? "X" 
+              : "Help"
+              } 
+        </button>
+        <p>
+          {
+            showAbout
+              ? "Type in your thought and click the button to share them with the world."
+              : ""
+          }
+        </p>
+      </div>
     </nav>
   );
 }

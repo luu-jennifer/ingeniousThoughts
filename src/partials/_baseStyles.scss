@@ -44,3 +44,19 @@ button,
 input {
   font-size: 100%;
 }
+
+button {
+  border: 2px solid $white;
+  color: $white;
+  background-color: $tertiaryColor;
+  margin: 0 auto;
+  padding: .5rem;
+  border-radius: 10px;
+  &:hover,
+  &:focus {
+    background-color: $white;
+    color: $tertiaryColor;
+    border: 2px solid $tertiaryColor;
+    transition: .15s;
+  }
+}

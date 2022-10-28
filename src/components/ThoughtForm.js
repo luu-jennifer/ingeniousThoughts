@@ -34,9 +34,6 @@ const ThoughtForm = () => {
     };
   };
 
-  
-  
-
   return(
     <section className="thoughtForm">
     <h2>Share your Thought</h2>

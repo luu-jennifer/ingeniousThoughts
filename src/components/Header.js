@@ -1,9 +1,11 @@
 import "../partials/_header.scss";
+// import Weather from "./Weather";
 
 const Header = () => {
   return (
     <header>
-      <h1>Ingenious Thoughts 🧠</h1>
+      {/* <Weather /> */}
+      <h1>Ingenious Thoughts 💭</h1>
     </header>
   );
 }
