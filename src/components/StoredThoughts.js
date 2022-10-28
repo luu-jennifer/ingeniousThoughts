@@ -30,7 +30,7 @@ const StoredThoughts = () => {
       // set the state to the array
       setThoughts(newState);
     });
-  }, []);
+  }, [""]);
 
   // create a function to delete a thought
   const deleteThought = (key) => {
