@@ -14,6 +14,7 @@
           &:focus {
             background-color: $black;
             border: 2px solid $tertiaryColor;
+            cursor: help;
           }
         }
   }

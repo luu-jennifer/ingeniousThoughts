@@ -47,7 +47,7 @@ const ThoughtForm = () => {
       <input 
         type="text" 
         id="thought" 
-        placeholder="Enter your thought here"
+        placeholder="Enter your thought here*"
         onChange={handleChange}
         // set the value to the state which will be the user's input then clear the input field
         value={newThought}

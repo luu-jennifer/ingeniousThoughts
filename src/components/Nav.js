@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Help = () => {
+const Nav = () => {
   //initial state is false
   const [showAbout, setShowAbout] = useState(false);
 
@@ -29,4 +29,4 @@ const Help = () => {
   );
 }
 
-export default Help;
+export default Nav;
