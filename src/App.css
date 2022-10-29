@@ -82,6 +82,16 @@ header h1 {
   padding: 1rem;
   margin: 1rem auto;
 }
+header .time {
+  border: 1px solid hotpink;
+  max-width: 20%;
+  font-size: 0.75rem;
+  padding: 1rem;
+}
+header .time p {
+  border: none;
+  color: rgb(0, 208, 255);
+}
 
 .storedThoughts button {
   border: 1px solid red;
@@ -148,12 +158,12 @@ header h1 {
   color: rebeccaPurple;
 }
 
-@media (max-width: 825px) {
+@media (max-width: 850px) {
   html {
     font-size: 90%;
   }
 }
-@media (max-width: 500px) {
+@media (max-width: 610px) {
   html {
     font-size: 60%;
   }

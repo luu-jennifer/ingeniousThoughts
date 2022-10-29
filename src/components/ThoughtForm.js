@@ -36,7 +36,6 @@ const ThoughtForm = () => {
 
   return(
     <section className="thoughtForm">
-    <h2>Share your Thought</h2>
     {/* // create a form to submit a thought */}
     <form>
       <label htmlFor="thought">Your Thought:</label>

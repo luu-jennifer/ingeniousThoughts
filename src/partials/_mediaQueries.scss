@@ -1,12 +1,12 @@
 @use "./variables" as *;
 
-@media (max-width: 825px) {
+@media (max-width: 850px) {
   html {
     font-size: 90%;
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 610px) {
   html {
     font-size: 60%;
   }
