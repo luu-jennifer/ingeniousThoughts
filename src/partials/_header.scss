@@ -12,15 +12,4 @@ header {
     padding: 1rem;
     margin: 1rem auto;
   }
-  .time {
-    border: 1px solid $primaryColor;
-    border-radius: 30px;
-    max-width: 20%;
-    font-size: .75rem;
-    padding: 1rem;
-    p {
-      border: none;
-      color: $secondaryColor;
-    }
-  }
 }

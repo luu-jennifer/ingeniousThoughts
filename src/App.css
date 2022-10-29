@@ -82,17 +82,6 @@ header h1 {
   padding: 1rem;
   margin: 1rem auto;
 }
-header .time {
-  border: 1px solid hotpink;
-  border-radius: 30px;
-  max-width: 20%;
-  font-size: 0.75rem;
-  padding: 1rem;
-}
-header .time p {
-  border: none;
-  color: rgb(175, 233, 246);
-}
 
 .storedThoughts button {
   border: 1px solid red;
