@@ -24,16 +24,13 @@ const ThoughtForm = () => {
     setNewThought(e.target.value);
   };
 
-  // let userId = localStorage.getItem("userId");
   // create a function to submit the user's input to firebase
   const handleSubmit = (e) => {
     // prevent the page from reloading
     e.preventDefault();
     if (newThought !== "") {
       // push the user's input to the database
-      //************** push an object **************
       const obj = {
-        // userId: userId,
         thought: newThought,
         time: time,
         timestamp: Date.now()
@@ -63,10 +60,6 @@ const ThoughtForm = () => {
         // set the value to the state which will be the user's input then clear the input field
         value={newThought}
       />
-
-      {/* Optional input */}
-      {/* <h2>Optional</h2> */}
-
 
       {/* create button to submit the form */}
       <button onClick={handleSubmit}>Add Thought</button>
