@@ -26,7 +26,12 @@ const ThoughtForm = () => {
     e.preventDefault();
     if (newThought !== "") {
       // push the user's input to the database
-      push(dbRef, newThought);
+      //************** push an object **************
+      const obj = {
+        thought: newThought,
+        timestamp: Date.now()
+      };
+      push(dbRef, obj);
       // clear the input field
       setNewThought("");
     } else {

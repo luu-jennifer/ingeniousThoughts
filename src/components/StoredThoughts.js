@@ -27,10 +27,11 @@ const StoredThoughts = () => {
         // push the data into the array
         newState.push({ key: key, thought: data[key] });
       }
+      console.log(newState);
       // set the state to the array
       setThoughts(newState);
     });
-  }, [dbRef]);
+  }, []);
 
   // create a function to delete a thought
   const deleteThought = (key) => {
