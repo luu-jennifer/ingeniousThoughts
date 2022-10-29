@@ -1,4 +1,4 @@
-import Weather from "./Weather";
+// import Weather from "./Weather";
 
 const Time = () => {
   const date = new Date();
@@ -8,7 +8,7 @@ const Time = () => {
     <div className="time">
       <h3>Local Time</h3>
       <p>{time}</p>
-      <Weather />
+      {/* <Weather /> */}
     </div>
   )
 };
