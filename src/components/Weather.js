@@ -1,67 +1,76 @@
+// // import axios from "axios";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
+const Weather = () => { 
+  // create state variables to store the weather data from API
+  const [weather, setWeather] = useState(null);
 
-// // // import axios from "axios";
-// import axios from "axios";
-// import { useState, useEffect } from "react";
+  // Make an API call to get the weather data from https://open-meteo.com/en/
+  useEffect(() => {
 
-// const Weather = () => { 
-//   // create state variables to store the weather data from API
-//   const [weather, setWeather] = useState(null);
+  axios({
+    url: 'https://api.open-meteo.com/v1/forecast?latitude=49.25&longitude=-123.12&hourly=temperature_2m&current_weather=true&timezone=America%2FLos_Angeles',
+    method: 'GET',
+    params: {
+      latitude: 49.25, 
+      longitude: -123.125, 
+      current_weather: true,
+      timezone: 'America/Los_Angeles',
+    },
+  })
+  .then( (res) => {
+    setWeather(res.data.current_weather);
+  })
+  //handle error from Axios docs
+  .catch(function (error) {
+    if (error.response) {
+      // The request was made and the server responded with a status code
+      // that falls out of the range of 2xx
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+    } else if (error.request) {
+      // The request was made but no response was received
+      // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+      // http.ClientRequest in node.js
+      console.log(error.request);
+    } else {
+      // Something happened in setting up the request that triggered an Error
+      console.log('Error', error.message);
+    }
+    console.log(error.config);
+  });
 
-//   // Make an API call to get the weather data from https://open-meteo.com/en/
-//   useEffect(() => {
+}, [weather]);
 
-// // https://api.open-meteo.com/v1/forecast?latitude=49.25&longitude=-123.12&hourly=temperature_2m&current_weather=true&timezone=America%2FLos_Angeles',
+  // Render the weather data
+  return (
+    <div className="weather">
+      <h3>Current Temperature</h3>
+      <p>{weather.temperature}°C</p>
+      <form 
+      // onSubmit={ (e) => getWeather(e, cityChoice) }
+      >
+        <select
+          name="cityWeather"
+          id="cityWeather"
+          // onChange={handleChangeCityChoice}
+          // value={cityChoice}
+        >
+          <option value="placeholder" disabled>Pick one:</option>
+          <option value="Vancouver">Vancouver</option>
+          {/* <option value="Toronto">Toronto</option>
+          <option value="Ottawa">Ottawa</option>
+          <option value="Montreal">Montreal</option>
+          <option value="Calgary">Calgary</option>
+          <option value="Edmonton">Edmonton</option>
+          <option value="Winnipeg">Winnipeg</option> */}
+          </select>
+        <button type="submit">Get Weather</button>
+      </form>
+    </div>
+  );
+};
 
-//     axios({
-//       method: 'GET',
-//         url: 'https://weatherbit-v1-mashape.p.rapidapi.com/current',
-//   params: {lon: '38.5', lat: '-78.5', units: 'imperial', lang: 'en'},
-//   headers: {
-//     'X-RapidAPI-Key': '20762ca2efmshf007e0f307b7992p1ab12bjsn8dd2c4549680',
-//     'X-RapidAPI-Host': 'weatherbit-v1-mashape.p.rapidapi.com'
-//   }
-//     })
-//     .then( (res) => {
-//       console.log("res", res.data);
-//       setWeather(res.data.current_weather);
-//     })
-//     //handle error from Axios docs
-//     .catch(function (error) {
-//     if (error.response) {
-//       // The request was made and the server responded with a status code
-//       // that falls out of the range of 2xx
-//       console.log(error.response.data);
-//       console.log(error.response.status);
-//       console.log(error.response.headers);
-//     } else if (error.request) {
-//       // The request was made but no response was received
-//       // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-//       // http.ClientRequest in node.js
-//       console.log(error.request);
-//     } else {
-//       // Something happened in setting up the request that triggered an Error
-//       console.log('Error', error.message);
-//     }
-//     console.log(error.config);
-//   });
-
-//   }, []);
-
-//   // Render the weather data
-//   return (
-//     <div className="weather">
-//       <h3>Weather</h3>
-//       <ul>
-//         <li>
-//           Location: Vancouver
-//         </li>
-//         <li>
-//           Current temperature: {weather.temperature}°C
-//         </li>
-//       </ul>
-//     </div>
-//   );
-// };
-
-// export default Weather;
+export default Weather;
