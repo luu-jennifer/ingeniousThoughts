@@ -29,6 +29,7 @@
       padding: .5rem .1rem;
       margin: .5rem 1rem;
       width: 30%;
+      background-color: $black;
       &:hover,
       &:focus {
         box-shadow: .1rem .1rem 1rem $white;
@@ -46,6 +47,5 @@
   p {
     color: $white;
     font-size: .6rem;
-    padding-top: .75rem;
   }
 }

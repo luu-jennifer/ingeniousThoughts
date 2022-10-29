@@ -34,7 +34,7 @@ const StoredThoughts = () => {
       // set the state to the array
       setThoughts(newState);
     });
-  }, []);
+  }, [dbRef]);
 
   // create a function to delete a thought
   const deleteThought = (key) => {
@@ -54,7 +54,7 @@ const StoredThoughts = () => {
             return(
               // create a list item for each thought
               <li key={key}>
-                <h3>{thought} key:{key}</h3>
+                <h3>{thought}</h3>
                 {/* //create a button to delete the thought */}
                 <button onClick={() => deleteThought(key)}>Delete</button>
                 <p>{time}</p>

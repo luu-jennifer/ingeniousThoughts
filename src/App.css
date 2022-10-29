@@ -6,6 +6,7 @@ html {
 p {
   color: hotpink;
   line-height: 1rem;
+  padding-top: 0.75rem;
 }
 
 a {
@@ -120,6 +121,7 @@ header .time p {
   padding: 0.5rem 0.1rem;
   margin: 0.5rem 1rem;
   width: 30%;
+  background-color: #000;
 }
 .storedThoughts ul li:hover, .storedThoughts ul li:focus {
   box-shadow: 0.1rem 0.1rem 1rem #fff;
@@ -135,7 +137,6 @@ header .time p {
 .storedThoughts p {
   color: #fff;
   font-size: 0.6rem;
-  padding-top: 0.75rem;
 }
 
 .thoughtForm {
