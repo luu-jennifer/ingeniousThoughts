@@ -14,6 +14,10 @@ const ThoughtForm = () => {
   // variable to hold the database reference
   const dbRef = ref(database);
 
+  //time variables
+  const date = new Date();
+  const time = date.toString();
+
   //create a function to handle change from the user's input
   const handleChange = (e) => {
     // set the state to the user's input
@@ -26,7 +30,12 @@ const ThoughtForm = () => {
     e.preventDefault();
     if (newThought !== "") {
       // push the user's input to the database
-      push(dbRef, newThought);
+      const obj = {
+        thought: newThought,
+        time: time,
+        timestamp: Date.now()
+      };
+      push(dbRef, obj);
       // clear the input field
       setNewThought("");
     } else {
@@ -51,10 +60,6 @@ const ThoughtForm = () => {
         // set the value to the state which will be the user's input then clear the input field
         value={newThought}
       />
-
-      {/* Optional input */}
-      {/* <h2>Optional</h2> */}
-
 
       {/* create button to submit the form */}
       <button onClick={handleSubmit}>Add Thought</button>

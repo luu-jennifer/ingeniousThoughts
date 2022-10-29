@@ -25,7 +25,11 @@ const StoredThoughts = () => {
       // loop through the data
       for (let key in data) {
         // push the data into the array
-        newState.push({ key: key, thought: data[key] });
+        newState.push({ 
+          key: key, 
+          thought: data[key].thought, 
+          time: data[key].time 
+        });
       }
       // set the state to the array
       setThoughts(newState);
@@ -46,13 +50,14 @@ const StoredThoughts = () => {
       <ul>
         {
         /* //loop though the array of thoughts and render each thought to the DOM */
-          thoughts.map( ( { index, key, thought } ) => {
+          thoughts.map( ( { key, thought, time } ) => {
             return(
               // create a list item for each thought
-              <li key={key+index}>
+              <li key={key}>
                 <h3>{thought}</h3>
                 {/* //create a button to delete the thought */}
                 <button onClick={() => deleteThought(key)}>Delete</button>
+                <p>{time}</p>
               </li>
             )
           })
