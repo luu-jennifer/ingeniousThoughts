@@ -5,12 +5,11 @@ html {
 
 p {
   color: hotpink;
-  line-height: 2rem;
-  border: 1px solid hotpink;
+  line-height: 1rem;
 }
 
 a {
-  color: rgb(0, 208, 255);
+  color: rgb(175, 233, 246);
   text-decoration: none;
 }
 a:hover, a:focus {
@@ -18,7 +17,7 @@ a:hover, a:focus {
 }
 
 h2 {
-  color: rgb(0, 208, 255);
+  color: rgb(175, 233, 246);
 }
 
 h3 {
@@ -91,7 +90,7 @@ header .time {
 }
 header .time p {
   border: none;
-  color: rgb(0, 208, 255);
+  color: rgb(175, 233, 246);
 }
 
 .storedThoughts button {
@@ -126,12 +125,17 @@ header .time p {
   box-shadow: 0.1rem 0.1rem 1rem #fff;
   cursor: crosshair;
   transition: 0.2s;
-  border: 1px solid rgb(0, 208, 255);
+  border: 1px solid rgb(175, 233, 246);
 }
 .storedThoughts ul li h3 {
-  color: rgb(0, 208, 255);
+  color: rgb(175, 233, 246);
   padding: 1rem;
   margin: 0.5rem auto;
+}
+.storedThoughts p {
+  color: #fff;
+  font-size: 0.6rem;
+  padding-top: 0.75rem;
 }
 
 .thoughtForm {

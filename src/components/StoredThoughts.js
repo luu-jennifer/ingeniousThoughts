@@ -4,7 +4,6 @@ import firebaseConfig from "../firebase";
 // NPM modules
 import { useState, useEffect } from "react";
 import { getDatabase, onValue, ref, remove} from "firebase/database";
-// import Joke from "./apis/Joke";
 
 //
 const StoredThoughts = () => {
@@ -26,9 +25,12 @@ const StoredThoughts = () => {
       // loop through the data
       for (let key in data) {
         // push the data into the array
-        newState.push({ key: key, thought: data[key] });
+        newState.push({ 
+          key: key, 
+          thought: data[key].thought, 
+          time: data[key].time 
+        });
       }
-      console.log(newState);
       // set the state to the array
       setThoughts(newState);
     });
@@ -48,19 +50,19 @@ const StoredThoughts = () => {
       <ul>
         {
         /* //loop though the array of thoughts and render each thought to the DOM */
-          thoughts.map( ( { index, key, thought } ) => {
+          thoughts.map( ( { key, thought, time } ) => {
             return(
               // create a list item for each thought
-              <li key={key+index}>
-                <h3>{thought}</h3>
+              <li key={key}>
+                <h3>{thought} key:{key}</h3>
                 {/* //create a button to delete the thought */}
                 <button onClick={() => deleteThought(key)}>Delete</button>
+                <p>{time}</p>
               </li>
             )
           })
         }
       </ul>
-      {/* <Joke /> */}
     </section>
   )
 }

@@ -14,12 +14,17 @@ const ThoughtForm = () => {
   // variable to hold the database reference
   const dbRef = ref(database);
 
+  //time variables
+  const date = new Date();
+  const time = date.toString();
+
   //create a function to handle change from the user's input
   const handleChange = (e) => {
     // set the state to the user's input
     setNewThought(e.target.value);
   };
 
+  // let userId = localStorage.getItem("userId");
   // create a function to submit the user's input to firebase
   const handleSubmit = (e) => {
     // prevent the page from reloading
@@ -28,7 +33,9 @@ const ThoughtForm = () => {
       // push the user's input to the database
       //************** push an object **************
       const obj = {
+        // userId: userId,
         thought: newThought,
+        time: time,
         timestamp: Date.now()
       };
       push(dbRef, obj);
