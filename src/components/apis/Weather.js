@@ -18,6 +18,7 @@
 //       current_weather: true,
 //       timezone: 'America/Los_Angeles',
 //       daily: 'apparent_temperature_max,apparent_temperature_min'
+//       current_weather: true
 //     },
 //   })
 //   .then( (res) => {
@@ -43,7 +44,7 @@
 //     console.log(error.config);
 //   });
 
-// }, [weather]);
+// }, []);
 
 //   // Render the weather data
 //   return (

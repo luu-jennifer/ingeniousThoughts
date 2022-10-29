@@ -4,6 +4,7 @@ import firebaseConfig from "../firebase";
 // NPM modules
 import { useState, useEffect } from "react";
 import { getDatabase, onValue, ref, remove} from "firebase/database";
+// import Joke from "./apis/Joke";
 
 //
 const StoredThoughts = () => {
@@ -59,6 +60,7 @@ const StoredThoughts = () => {
           })
         }
       </ul>
+      {/* <Joke /> */}
     </section>
   )
 }

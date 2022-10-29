@@ -1,4 +1,4 @@
-// import Weather from "./Weather";
+// import Weather from "./apis/Weather";
 
 const Time = () => {
   const date = new Date();
