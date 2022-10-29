@@ -4,6 +4,7 @@ import firebaseConfig from "../firebase";
 import { useState } from "react";
 import { getDatabase, push, ref } from "firebase/database";
 
+
 // component to add thoughts to the database
 const ThoughtForm = () => {
   // state variables that will hold the user's input from the form
@@ -34,6 +35,8 @@ const ThoughtForm = () => {
     };
   };
 
+
+
   return(
     <section className="thoughtForm">
     {/* // create a form to submit a thought */}
@@ -48,6 +51,11 @@ const ThoughtForm = () => {
         // set the value to the state which will be the user's input then clear the input field
         value={newThought}
       />
+
+      {/* Optional input */}
+      {/* <h2>Optional</h2> */}
+
+
       {/* create button to submit the form */}
       <button onClick={handleSubmit}>Add Thought</button>
     </form>
