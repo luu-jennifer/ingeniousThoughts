@@ -8,7 +8,6 @@ const Time = () => {
     <div className="time">
       <h3>Local Time</h3>
       <p>{time}</p>
-      {/* <Weather /> */}
     </div>
   )
 };
