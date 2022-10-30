@@ -7,6 +7,9 @@ import Footer from "./components/Footer";
 
 
 function App() {
+  //create a userID based on local storage and pass prop to the main component then pass props to thoughtForm
+
+
   return (
     <div className="App">
       <Nav />

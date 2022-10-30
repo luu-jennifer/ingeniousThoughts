@@ -2,6 +2,7 @@
 @use "./variables" as *;
 
 .storedThoughts {
+  margin: 3rem auto;
   button {
     border: 1px solid $quaternaryColor;
     background-color: $black;
@@ -15,20 +16,19 @@
   }
   ul {
     display: flex;
-    flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    margin: 0 auto;
     li {
       display: flex;
       flex-direction: column;
       align-items: center;
       flex-wrap: wrap;
-      border: 1px solid $primaryColor;
-      border-radius: 5px;
-      padding: .5rem .1rem;
-      margin: .5rem 1rem;
-      width: 30%;
+      border: 2px solid $primaryColor;
+      border-radius: 10px;
+      padding: .5rem .5rem;
+      margin: .5rem .5rem;
+      width: 33vw;
       background-color: $black;
       &:hover,
       &:focus {
