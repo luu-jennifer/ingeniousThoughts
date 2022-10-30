@@ -7,18 +7,11 @@ import Footer from "./components/Footer";
 
 
 function App() {
-  //time variables
-  const date = new Date();
-  const time = date.toString();
-
-  //create a userID based on local storage and pass prop to the main component then pass props to thoughtForm
-
-
   return (
     <div className="App">
       <Nav />
       <Header />
-      <Main time={time}/>
+      <Main />
       <Footer />
     </div>
   );
