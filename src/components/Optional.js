@@ -1,3 +1,5 @@
+import Weather from ".apis/Weather";
+
 const Optional = () => {
   console.log('Optional component');
 
@@ -32,8 +34,10 @@ const Optional = () => {
     {/* TODO: API calls
       1. add temperature by city, 
       2. thought details  */}
-
+      <Weather />
 
     </aside>
   );
 };
+
+export default Optional;

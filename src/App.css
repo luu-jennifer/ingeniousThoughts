@@ -74,13 +74,25 @@ header {
   margin: 20% auto 0 auto;
   color: hotpink;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
+  width: 80%;
 }
 header h1 {
   padding: 1rem;
   margin: 1rem auto;
+}
+header .imgContainer {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .imgContainer img {
+  width: 100%;
+  max-width: 300px;
 }
 
 .storedThoughts button {
@@ -126,6 +138,10 @@ header h1 {
 .storedThoughts p {
   color: #fff;
   font-size: 0.6rem;
+}
+.storedThoughts .favCount {
+  color: #fff;
+  padding: 0.5rem;
 }
 
 .thoughtForm {
