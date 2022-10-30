@@ -52,7 +52,6 @@ const StoredThoughts = () => {
     <section className="storedThoughts" 
     >
       {/* this will be the data from firebase mounted */}
-      <h2>🤯</h2>
       <ul>
         {
         /* //loop though the array of thoughts and render each thought to the DOM */
@@ -61,7 +60,7 @@ const StoredThoughts = () => {
               // create a list item for each thought
               <li key={key}>
                 <h3>{thought}</h3>
-                <div className="favCount">⭐️{favoriteCount}</div>
+                <div className="favCount">{favoriteCount} ⭐️</div>
 
 
                 {/* //create a button to delete the thought */}

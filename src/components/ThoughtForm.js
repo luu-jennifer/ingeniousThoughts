@@ -50,10 +50,10 @@ const ThoughtForm = () => {
   // mood color change
 
   //create variable to store color names
-  const colorNames = ['tomato', 'blue', 'turquoise', 'indigo', 'orchid', 'black', 'salmon'];
+  const colorNames = ['Tomato', 'Blue', 'Turquoise', 'Indigo', 'Orchid', 'Black', 'Salmon'];
 
   // create state variable to store the color
-  const [color, setColor] = useState('black');
+  const [color, setColor] = useState('Black');
 
   // create variable to store the color the background color of .storedThoughts section will be changed to
   const moodColor = {backgroundColor: color};
