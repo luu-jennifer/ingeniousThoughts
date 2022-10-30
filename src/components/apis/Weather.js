@@ -1,3 +1,6 @@
+// FIXME: API call crashes app
+
+
 // // import axios from "axios";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -18,7 +21,7 @@ const Weather = () => {
       current_weather: true,
       timezone: 'America/Los_Angeles',
       daily: 'apparent_temperature_max,apparent_temperature_min',
-      current_weather: true
+      // current_weather: true
     },
   })
   .then( (res) => {
@@ -50,7 +53,7 @@ const Weather = () => {
   return (
     <div className="weather">
       <h3>Current Temperature</h3>
-      {/* <p>High {weather.apparent_temperature_max[0]}°C / Low {weather.apparent_temperature_min[0]}°C</p> */}
+      <p>High {weather.apparent_temperature_max[0]}°C / Low {weather.apparent_temperature_min[0]}°C</p>
       <form 
       // onSubmit={ (e) => getWeather(e, cityChoice) }
       >

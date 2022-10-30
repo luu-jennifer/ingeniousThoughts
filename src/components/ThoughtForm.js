@@ -5,6 +5,8 @@ import { useState } from "react";
 import { getDatabase, push, ref } from "firebase/database";
 
 
+
+
 // component to add thoughts to the database
 const ThoughtForm = () => {
   // state variables that will hold the user's input from the form
