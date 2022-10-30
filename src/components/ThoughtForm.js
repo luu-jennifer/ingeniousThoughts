@@ -20,6 +20,7 @@ const ThoughtForm = (props) => {
   // variable to hold the database reference
   const dbRef = ref(database);
 
+
   //create a function to handle change from the user's input
   const handleChange = (e) => {
     // set the state to the user's input

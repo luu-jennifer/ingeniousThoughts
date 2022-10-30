@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-
 const Alert = ({type, msg, removeAlert, newThought}) => {
   useEffect( () => {
     const timeout = setTimeout(() => {
       removeAlert();
     }, 3000);
     return () => clearTimeout(timeout);
+    // eslint-disable-next-line
   }, [newThought]);
   return (
     <h5 className={`alert-${type}`}>
