@@ -4,6 +4,7 @@ import firebaseConfig from "../firebase";
 // NPM modules
 import { useState, useEffect } from "react";
 import { getDatabase, onValue, ref, remove} from "firebase/database";
+import Joke from "./apis/Joke";
 
 //
 const StoredThoughts = () => {
@@ -28,7 +29,8 @@ const StoredThoughts = () => {
         newState.push({ 
           key: key, 
           thought: data[key].thought, 
-          time: data[key].time 
+          time: data[key].time, 
+          favoriteCount: data[key].favoriteCount
         });
       }
       // set the state to the array
@@ -42,6 +44,16 @@ const StoredThoughts = () => {
     remove(ref(database, key));
   };
 
+// FIXME: create a function to update the favorite count onClick. useState to update the count. useEffect to update the database.
+// const [favoriteCount, setFavoriteCount] = useState(0);
+
+// const updateFavoriteCount = (key) => {
+//   // update the favorite count in the database
+//   setFavoriteCount(favoriteCount + 1);
+// };
+
+
+
   //render the thoughts to the DOM
   return(
     <section className="storedThoughts">
@@ -50,11 +62,13 @@ const StoredThoughts = () => {
       <ul>
         {
         /* //loop though the array of thoughts and render each thought to the DOM */
-          thoughts.map( ( { key, thought, time } ) => {
+          thoughts.map( ( { key, thought, time, favoriteCount } ) => {
             return(
               // create a list item for each thought
               <li key={key}>
                 <h3>{thought}</h3>
+                {/* FIXME: favorite counter styles */}
+                <div className="favCount">⭐️{favoriteCount}</div>
                 {/* //create a button to delete the thought */}
                 <button onClick={() => deleteThought(key)}>Delete</button>
                 <p>{time}</p>
@@ -62,6 +76,10 @@ const StoredThoughts = () => {
             )
           })
         }
+        <Joke />
+        <Joke />
+        <Joke />
+
       </ul>
     </section>
   )
