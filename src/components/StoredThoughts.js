@@ -57,7 +57,8 @@ const StoredThoughts = () => {
 
   //render the thoughts to the DOM
   return(
-    <section className="storedThoughts">
+    <section className="storedThoughts" 
+    >
       {/* this will be the data from firebase mounted */}
       <h2>🤯</h2>
       <ul>

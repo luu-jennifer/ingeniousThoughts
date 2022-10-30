@@ -4,9 +4,6 @@ import firebaseConfig from "../firebase";
 import { useState } from "react";
 import { getDatabase, push, ref } from "firebase/database";
 
-import Optional from "./Optional";
-
-
 
 
 // component to add thoughts to the database
@@ -49,32 +46,70 @@ const ThoughtForm = () => {
   };
 
 
+  // mood color change
+
+  //create variable to store color names
+  const colorNames = ['Tomato', 'Blue', 'Turquoise', 'Indigo', 'Orchid', 'Black', 'Teal'];
+
+  // create state variable to store the color
+  const [color, setColor] = useState('black');
+
+  // create variable to store the color the background color of .storedThoughts section will be changed to
+  const moodColor = {backgroundColor: color};
+
+  // create a function to change the color
+  const changeColor = () => {
+    // create a variable to store a random number
+    const randomNum = Math.floor(Math.random() * colorNames.length);
+    // set the color state to the color name at the random index
+    setColor(colorNames[randomNum]);
+  };
 
   return(
     <section className="thoughtForm">
-    {/* // create a form to submit a thought */}
-      <form>
-        <label htmlFor="thought">Your Thought:</label>
-        {/* create input field for the new thought */}
-        <input 
-          type="text" 
-          id="thought" 
-          placeholder="Enter your thought here*"
-          onChange={handleChange}
-          // set the value to the state which will be the user's input then clear the input field
-          value={newThought}
-        />
+      <div 
+        className="Container"
+        style={moodColor}
+      >
 
-        {/* create button to submit the form */}
-        <button onClick={handleSubmit}>Add Thought</button>
-      </form>
+      {/* // create a form to submit a thought */}
+        <form>
+          <label htmlFor="thought">Tell us your thought</label>
+          {/* create input field for the new thought */}
+          <input 
+            type="text" 
+            id="thought" 
+            placeholder="Enter your thought here*"
+            onChange={handleChange}
+            // set the value to the state which will be the user's input then clear the input field
+            value={newThought}
+            />
 
-  {/* Optional component  */}
-      <Optional />
+          {/* create button to submit the form */}
+          <button onClick={handleSubmit}>Add Thought</button>
+        </form>
+
+      <div className="moodColor">
+        <p>Pick a Color to Describe your Mood: {color}</p>
+          {
+            colorNames.map((colorName) => {
+              return (
+                <button 
+                  key={colorName} 
+                  onClick={() => setColor(colorName)}>{colorName}
+                </button>
+                );
+              })
+              //random color button
+            }
+            <button 
+            onClick={changeColor}>Random Color</button>
+          </div>
 
 
 
 
+      </div>
     </section>
   )
 }
