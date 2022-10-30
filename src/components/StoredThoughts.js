@@ -4,7 +4,7 @@ import "../partials/_storedThoughts.scss";
 import firebaseConfig from "../firebase";
 // NPM modules
 import { useState, useEffect } from "react";
-import { getDatabase, onValue, ref, remove} from "firebase/database";
+import { getDatabase, onValue, ref, remove, update} from "firebase/database";
 import Joke from "./apis/Joke";
 
 //
@@ -47,6 +47,20 @@ const StoredThoughts = (props) => {
   };
 
 
+// create a function to update the favorite count
+  const [favoriteCount, setFavoriteCount] = useState(0);
+  const updateFavoriteCount = (key) => {
+    //update the favorite count
+    update(ref(database, key), {
+      favoriteCount: favoriteCount + 1
+    });
+    //set the favorite count to the new value
+    setFavoriteCount(favoriteCount + 1);
+  };
+
+
+
+
 
   //render the thoughts to the DOM
   return(
@@ -61,8 +75,12 @@ const StoredThoughts = (props) => {
               // create a list item for each thought
               <li key={key}>
                 <h3>{thought}</h3>
-                <div className="favCount">{favoriteCount} ⭐️</div>
 
+                {/* create button to increase fav counter */}
+                <button
+                  onClick={() => updateFavoriteCount(key, favoriteCount)}
+                  >{favoriteCount} ⭐️
+                </button>
 
                 {/* //create a button to delete the thought */}
                 <button onClick={() => deleteThought(key)}>Delete</button>
