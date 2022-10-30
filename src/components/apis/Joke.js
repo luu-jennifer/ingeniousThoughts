@@ -38,11 +38,13 @@ const Joke = () => {
 
 }, []);
 
+  const wildcard = 'Joke of the Moment:';
   // Render the joke data
   return (
-    <li>
-      <h3>{joke}</h3>
-    </li>
+    <>
+      <h3>{wildcard.toUpperCase()}</h3>
+      <h4>{joke}</h4>
+    </>
   );
 };
 

@@ -7,7 +7,7 @@ import { getDatabase, push, ref } from "firebase/database";
 
 
 // component to add thoughts to the database
-const ThoughtForm = () => {
+const ThoughtForm = (props) => {
   // state variables that will hold the user's input from the form
   const [newThought, setNewThought] = useState("");
   // variable to hold the database values
@@ -15,9 +15,9 @@ const ThoughtForm = () => {
   // variable to hold the database reference
   const dbRef = ref(database);
 
-  //time variables
-  const date = new Date();
-  const time = date.toString();
+  // //time variables
+  // const date = new Date();
+  // const time = date.toString();
 
   //create a function to handle change from the user's input
   const handleChange = (e) => {
@@ -34,7 +34,7 @@ const ThoughtForm = () => {
       const obj = {
         thought: newThought,
         mood: color,
-        time: time,
+        time: props.time,
         timestamp: Date.now()
       };
       push(dbRef, obj);

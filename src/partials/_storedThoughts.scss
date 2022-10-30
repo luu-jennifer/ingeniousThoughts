@@ -7,9 +7,10 @@
     border: 1px solid $quaternaryColor;
     background-color: $black;
     color: $white;
+    margin: .5rem;
     &:hover,
     &:focus {
-      background-color: $quaternaryColor;
+      background-color: $secondaryColor;
       color: $black;
       cursor: pointer;
     }
@@ -17,40 +18,36 @@
   ul {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     margin: 0 auto;
-    li {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      flex-wrap: wrap;
-      border: 2px solid $primaryColor;
-      border-radius: 10px;
-      padding: .5rem .5rem;
-      margin: .5rem .5rem;
-      width: 33vw;
-      background-color: $black;
-      &:hover,
-      &:focus {
-        box-shadow: .1rem .1rem 1rem $white;
-        cursor: crosshair;
-        transition: .2s;
-        border: 1px solid $secondaryColor;
-      }
-      h3 {
-        color: $secondaryColor;
-        padding: 1rem;
-        margin: .5rem auto;
-      }
-    }
+    padding: 0;
   }
   p {
     color: $white;
     font-size: .6rem;
   }
-  .favCount {
-  color: $white;
-  padding: .5rem;
-  margin-bottom: .5rem;
+  li {
+    border: 2px solid $primaryColor;
+    border-radius: 30px;
+    padding: .5rem .5rem;
+    margin: .5rem .5rem;
+    width: 30vw;
+    background-color: $black;
+
+    &:hover,
+    &:focus {
+      box-shadow: .1rem .1rem 1rem $white;
+      cursor: crosshair;
+      transition: .2s;
+      border: 1px solid $secondaryColor;
+    }
+
+    h3,
+    h4 {
+      color: $secondaryColor;
+      padding: 1rem;
+      margin: .5rem auto;
+    }
   }
 }

@@ -3,11 +3,11 @@ import "../partials/_storedThoughts.scss";
 import firebaseConfig from "../firebase";
 // NPM modules
 import { useState, useEffect } from "react";
-import { getDatabase, onValue, ref, remove} from "firebase/database";
+import { getDatabase, onValue, ref, remove, update} from "firebase/database";
 import Joke from "./apis/Joke";
 
 //
-const StoredThoughts = () => {
+const StoredThoughts = (props) => {
   // state
   const [thoughts, setThoughts] = useState([]);
   // variable to hold the database values
@@ -42,9 +42,24 @@ const StoredThoughts = () => {
   // create a function to delete a thought
   const deleteThought = (key) => {
     // remove the thought from the database
-    remove(ref(database, key));
+    remove(dbRef, key);
   };
 
+  //set variable to hold the favorite count
+  const [favoriteCount, setFavoriteCount] = useState(0);
+  //create a function to update the favorite count
+  const updateFavoriteCount = (key) => {
+    //update the favorite count
+    update(ref(database, key), {
+      favoriteCount: favoriteCount + 1
+    });
+    //set the favorite count to the new value
+    setFavoriteCount(favoriteCount + 1);
+  };
+  // useEffect(() => {
+  //   update(dbRef, favoriteCount);
+
+  // }
 
 
   //render the thoughts to the DOM
@@ -60,17 +75,26 @@ const StoredThoughts = () => {
               // create a list item for each thought
               <li key={key}>
                 <h3>{thought}</h3>
-                <div className="favCount">{favoriteCount} ⭐️</div>
+                <div className="btnContainer">
 
+                  {/* create a button to increase the favorite counter */}
+                  <button
+                    onClick={() => updateFavoriteCount(key, favoriteCount)}
+                    >{favoriteCount} ⭐️
+                  </button>
 
-                {/* //create a button to delete the thought */}
-                <button onClick={() => deleteThought(key)}>Delete</button>
+                  {/* //create a button to delete the thought */}
+                  <button onClick={() => deleteThought(key)}>Delete</button>
+                </div>
                 <p>{time}</p>
               </li>
             )
           })
         }
-        <Joke />
+        <li>
+          <Joke />
+          <p>{props.time}</p>
+        </li>
       </ul>
     </section>
   )
