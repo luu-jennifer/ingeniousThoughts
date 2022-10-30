@@ -4,6 +4,8 @@ import firebaseConfig from "../firebase";
 import { useState } from "react";
 import { getDatabase, push, ref } from "firebase/database";
 
+import Optional from "./Optional";
+
 
 
 
@@ -51,23 +53,29 @@ const ThoughtForm = () => {
   return(
     <section className="thoughtForm">
     {/* // create a form to submit a thought */}
-    <form>
-      <label htmlFor="thought">Your Thought:</label>
-      {/* create input field for the new thought */}
-      <input 
-        type="text" 
-        id="thought" 
-        placeholder="Enter your thought here*"
-        onChange={handleChange}
-        // set the value to the state which will be the user's input then clear the input field
-        value={newThought}
-      />
+      <form>
+        <label htmlFor="thought">Your Thought:</label>
+        {/* create input field for the new thought */}
+        <input 
+          type="text" 
+          id="thought" 
+          placeholder="Enter your thought here*"
+          onChange={handleChange}
+          // set the value to the state which will be the user's input then clear the input field
+          value={newThought}
+        />
 
-      {/* create button to submit the form */}
-      <button onClick={handleSubmit}>Add Thought</button>
-    </form>
+        {/* create button to submit the form */}
+        <button onClick={handleSubmit}>Add Thought</button>
+      </form>
+
+  {/* Optional component  */}
+      <Optional />
+
+
+
+
     </section>
-
   )
 }
 

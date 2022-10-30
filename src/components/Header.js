@@ -5,9 +5,9 @@ const Header = () => {
   return (
     <header>
       <div className="imgContainer">
-        <img src={thoughtCloud1} alt="an animated thought cloud" srcset="" />
+        <img src={thoughtCloud1} alt="an animated thought cloud" />
       </div>
-      <h1>I have thoughts</h1>      
+      <h1>I have thoughts..</h1>      
     </header>
   );
 }
