@@ -4,20 +4,21 @@ import firebaseConfig from "../firebase";
 import { useState } from "react";
 import { getDatabase, push, ref } from "firebase/database";
 
+import Alert from "./Alert";
+
 
 
 // component to add thoughts to the database
 const ThoughtForm = (props) => {
   // state variables that will hold the user's input from the form
   const [newThought, setNewThought] = useState("");
+
+  //variable to set the alert
+  const [alert, setAlert] = useState({show: true, msg: "", type: ""});
   // variable to hold the database values
   const database = getDatabase(firebaseConfig);
   // variable to hold the database reference
   const dbRef = ref(database);
-
-  // //time variables
-  // const date = new Date();
-  // const time = date.toString();
 
   //create a function to handle change from the user's input
   const handleChange = (e) => {
@@ -40,10 +41,17 @@ const ThoughtForm = (props) => {
       push(dbRef, obj);
       // clear the input field
       setNewThought("");
+      // set the alert-thanks
+      setAlert({show: true, msg: "Thank you for your thought!", type: "thanks"});
     } else {
       // Prevent empty submission. alert the user to enter a thought
-      alert("Please type in your thought.");
+      setAlert({show: true, msg: "Please enter a thought", type: "empty"});
     };
+  };
+
+  // create a function to remove the alert
+  const showAlert = (show = false, type = '', msg = '') => {
+    setAlert({show, type, msg});
   };
 
 
@@ -65,6 +73,9 @@ const ThoughtForm = (props) => {
     // set the color state to the color name at the random index
     setColor(colorNames[randomNum]);
   };
+
+  //TODO: search for an image url for thought post from a call from an API
+
 
   return(
     <section className="thoughtForm">
@@ -107,6 +118,7 @@ const ThoughtForm = (props) => {
 
           {/* create button to submit the form */}
           <button onClick={handleSubmit}>Add Thought</button>
+          {alert.show && <Alert {...alert} removeAlert={showAlert} />}
         </form>
 
 

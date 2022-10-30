@@ -39,11 +39,12 @@ const StoredThoughts = (props) => {
     });
   }, [dbRef]);
 
-  // create a function to delete a thought
-  const deleteThought = (key) => {
-    // remove the thought from the database
-    remove(dbRef, key);
-  };
+  // FIXME: Remove thought from firebase is not working and deleting all data from firebase
+  // // create a function to delete a thought
+  // const deleteThought = (key) => {
+  //   // remove the thought from the database
+  //   remove(dbRef, key);
+  // };
 
   //set variable to hold the favorite count
   const [favoriteCount, setFavoriteCount] = useState(0);
@@ -75,7 +76,7 @@ const StoredThoughts = (props) => {
               // create a list item for each thought
               <li key={key}>
                 <h3>{thought}</h3>
-                <div className="btnContainer">
+                {/* <div className="btnContainer"> */}
 
                   {/* create a button to increase the favorite counter */}
                   <button
@@ -84,8 +85,8 @@ const StoredThoughts = (props) => {
                   </button>
 
                   {/* //create a button to delete the thought */}
-                  <button onClick={() => deleteThought(key)}>Delete</button>
-                </div>
+                  {/* <button onClick={() => deleteThought(key)}>Delete</button> */}
+                {/* </div> */}
                 <p>{time}</p>
               </li>
             )
