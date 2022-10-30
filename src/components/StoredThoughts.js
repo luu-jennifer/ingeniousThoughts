@@ -25,12 +25,13 @@ const StoredThoughts = () => {
       const data = res.val();
       // loop through the data
       for (let key in data) {
+        let dataKey = data[key];
         // push the data into the array
         newState.push({ 
           key: key, 
-          thought: data[key].thought, 
-          time: data[key].time, 
-          favoriteCount: data[key].favoriteCount
+          thought: dataKey.thought, 
+          time: dataKey.time, 
+          favoriteCount: dataKey.favoriteCount
         });
       }
       // set the state to the array
@@ -77,9 +78,6 @@ const StoredThoughts = () => {
           })
         }
         <Joke />
-        <Joke />
-        <Joke />
-
       </ul>
     </section>
   )
