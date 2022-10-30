@@ -46,10 +46,26 @@ const StoredThoughts = () => {
   };
 
 
+<<<<<<< HEAD
+=======
+  
+// FIXME: create a function to update the favorite count onClick. useState to update the count. useEffect to update the database.
+const [favoriteCounter, setFavoriteCounter] = useState(0);
+
+const updateFavoriteCount = (key) => {
+  // update the favorite count in the database
+  setFavoriteCounter(favoriteCounter + 1);
+};
+
+
+
+
+>>>>>>> colorFeature
 
   //render the thoughts to the DOM
   return(
-    <section className="storedThoughts">
+    <section className="storedThoughts" 
+    >
       {/* this will be the data from firebase mounted */}
       <h2>🤯</h2>
       <ul>
@@ -60,7 +76,20 @@ const StoredThoughts = () => {
               // create a list item for each thought
               <li key={key}>
                 <h3>{thought}</h3>
+<<<<<<< HEAD
                 <div className="favCount">⭐️{favoriteCount}</div>
+=======
+
+
+                {/* FIXME: favorite counter styles */}
+                <p className="favoriteCounter">{favoriteCounter}</p>
+                <button 
+                className="favCount"
+                onClick={updateFavoriteCount}>⭐️{favoriteCount}
+                </button>
+
+
+>>>>>>> colorFeature
                 {/* //create a button to delete the thought */}
                 <button onClick={() => deleteThought(key)}>Delete</button>
                 <p>{time}</p>

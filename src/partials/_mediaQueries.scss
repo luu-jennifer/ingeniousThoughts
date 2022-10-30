@@ -1,8 +1,21 @@
 @use "./variables" as *;
 
-@media (max-width: 850px) {
+@media (max-width: 1100px) {
   html {
     font-size: 90%;
+  }
+  .thoughtForm {
+    max-width: 100%;
+    .Container {
+      padding: 2rem;
+      label {
+        font-size: 1.25rem;
+      }
+      p {
+        font-size: 1rem;
+        width: 100%;
+      }
+    }
   }
 }
 
