@@ -412,6 +412,22 @@ header .imgContainer img {
   font-style: italic;
   text-transform: uppercase;
 }
+.storedThoughts .imgSearchContainer {
+  max-width: 50%;
+  margin: 0 auto 1rem auto;
+}
+.storedThoughts .imgSearchContainer .imgContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem;
+}
+.storedThoughts .imgSearchContainer .imgContainer img {
+  display: block;
+  max-width: 100%;
+  border: 3px solid #fff;
+  border-radius: 30px;
+}
 
 .thoughtForm {
   padding: 1rem 0;

@@ -54,4 +54,23 @@
     font-style: italic;
     text-transform: uppercase;
   }
-}
+
+  .imgSearchContainer {
+    max-width: 50%;
+    margin: 0 auto 1rem auto;
+      .imgContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .2rem;
+    img {
+        display: block;
+        max-width: 100%;
+        border: 3px solid $white;
+        border-radius: 30px;
+      }
+  }
+    }
+  }
+
+

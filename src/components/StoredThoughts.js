@@ -6,7 +6,6 @@ import firebaseConfig from "../firebase";
 import { useState, useEffect } from "react";
 import { getDatabase, onValue, ref, remove, update} from "firebase/database";
 import Joke from "./apis/Joke";
-import ImgSearch from "./apis/ImgSearch";
 
 //
 const StoredThoughts = (props) => {
@@ -100,7 +99,6 @@ const StoredThoughts = (props) => {
 
         <li>
           <Joke />
-          <ImgSearch />
           <p>{props.passedTime}</p>
         </li>
       </ul>

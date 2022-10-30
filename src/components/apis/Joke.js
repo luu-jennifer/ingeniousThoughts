@@ -1,7 +1,7 @@
 // // import axios from "axios";
 import axios from "axios";
 import { useState, useEffect } from "react";
-
+import ImgSearch from "./ImgSearch";
 
 const Joke = () => { 
   // create state variables to store the joke data from API
@@ -39,7 +39,7 @@ const Joke = () => {
 
 }, []);
 
-  const wildcard = 'Joke of the Moment:';
+  const wildcard = 'Random Thought:';
   // create a function to delete the joke
   const [showJoke, setShowJoke] = useState(false);
   const toggleJoke = () => {
@@ -53,13 +53,16 @@ const Joke = () => {
       {
         showJoke
           ? ""
-          : <h4 className="joke">{joke}</h4>
+          : <>
+              <h4 className="joke">{joke}</h4>
+              <ImgSearch />
+            </>
       }
       <button onClick={toggleJoke}>
         {
           showJoke
-            ? "Show Joke"
-            : "Hide Joke"
+            ? "Show"
+            : "Hide"
         }
         </button>
     </>
