@@ -7,7 +7,11 @@ import { useState, useEffect } from "react";
 import { getDatabase, onValue, ref, remove, update} from "firebase/database";
 import Joke from "./apis/Joke";
 
-//
+//FIXME: 
+//1. Fix counter bug to start at stored value
+
+
+
 const StoredThoughts = (props) => {
   // state
   const [thoughts, setThoughts] = useState([]);
@@ -70,7 +74,7 @@ const StoredThoughts = (props) => {
       <ul>
         {
 
-        //   //write a tenary operator to check if there are thoughts
+        //   //write a logic to check if there are thoughts
           thoughts.length > 0 ?
         //   // if there are thoughts, map through them
 

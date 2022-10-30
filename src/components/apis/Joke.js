@@ -53,9 +53,9 @@ const Joke = () => {
       {
         showJoke
         ? ""
-        : <>
+        : <div className="jokeContainer">
               <h4 className="joke">{joke}</h4>
-            </>
+          </div>
       }
       <ImgSearch />
       <button onClick={toggleJoke}>

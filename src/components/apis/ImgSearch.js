@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const ImgSearch = () => {
-  console.log("ImgSearch rendered");
 // create an image search modal that will display a random image from the API giphy.com
 // create a state to hold the image
 const [image, setImage] = useState(null);
