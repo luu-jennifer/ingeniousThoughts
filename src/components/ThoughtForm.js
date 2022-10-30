@@ -36,7 +36,7 @@ const ThoughtForm = (props) => {
       const obj = {
         thought: newThought,
         mood: color,
-        time: props.time,
+        time: props.passedTime,
         timestamp: Date.now()
       };
       push(dbRef, obj);

@@ -408,6 +408,10 @@ header .imgContainer img {
   padding: 1rem;
   margin: 0.5rem auto;
 }
+.storedThoughts .wildcard {
+  font-style: italic;
+  text-transform: uppercase;
+}
 
 .thoughtForm {
   padding: 1rem 0;
@@ -461,8 +465,8 @@ header .imgContainer img {
   background-color: rebeccaPurple;
   color: #fff;
   padding: 0.75rem;
-  border-radius: 20px;
-  margin-bottom: 1rem;
+  border-radius: 5px;
+  margin: 1rem;
   width: 40%;
   border: 1px solid #fff;
 }
@@ -471,7 +475,7 @@ header .imgContainer img {
   background-color: hotpink;
   color: #fff;
   padding: 0.75rem;
-  border-radius: 20px;
+  border-radius: 5px;
   margin: 1rem auto;
   width: 50%;
   border: 1px solid #fff;
@@ -482,7 +486,7 @@ header .imgContainer img {
   color: #fff;
   padding: 0.75rem;
   border: 1px solid #fff;
-  border-radius: 20px;
+  border-radius: 5px;
   margin: 1rem auto;
   width: 50%;
 }

@@ -2,6 +2,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
+
 const Joke = () => { 
   // create state variables to store the joke data from API
   const [joke, setJoke] = useState(null);
@@ -39,11 +40,28 @@ const Joke = () => {
 }, []);
 
   const wildcard = 'Joke of the Moment:';
+  // create a function to delete the joke
+  const [showJoke, setShowJoke] = useState(false);
+  const toggleJoke = () => {
+    setShowJoke(!showJoke);
+  };
   // Render the joke data
   return (
     <>
-      <h3>{wildcard.toUpperCase()}</h3>
-      <h4>{joke}</h4>
+      <h3 className="wildcard">{wildcard}</h3>
+      {/* create tenary operater to toggle the joke onClick */}
+      {
+        showJoke
+          ? ""
+          : <h4 className="joke">{joke}</h4>
+      }
+      <button onClick={toggleJoke}>
+        {
+          showJoke
+            ? "Show Joke"
+            : "Hide Joke"
+        }
+        </button>
     </>
   );
 };

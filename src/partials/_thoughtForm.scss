@@ -54,8 +54,8 @@
   background-color: $tertiaryColor;
   color: $white;
   padding: .75rem;
-  border-radius: 20px;
-  margin-bottom: 1rem;
+  border-radius: 5px;
+  margin: 1rem;
   width: 40%;
   border: 1px solid $white;
 }
@@ -64,7 +64,7 @@
   background-color: $primaryColor;
   color: $white;
   padding: .75rem;
-  border-radius: 20px;
+  border-radius: 5px;
   margin: 1rem auto;
   width: 50%;
   border: 1px solid $white;
@@ -75,7 +75,7 @@
   color: $white;
   padding: .75rem;
   border: 1px solid $white;
-  border-radius: 20px;
+  border-radius: 5px;
   margin: 1rem auto;
   width: 50%;
 }

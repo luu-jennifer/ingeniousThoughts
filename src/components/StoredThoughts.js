@@ -6,6 +6,7 @@ import firebaseConfig from "../firebase";
 import { useState, useEffect } from "react";
 import { getDatabase, onValue, ref, remove, update} from "firebase/database";
 import Joke from "./apis/Joke";
+import ImgSearch from "./apis/ImgSearch";
 
 //
 const StoredThoughts = (props) => {
@@ -48,7 +49,7 @@ const StoredThoughts = (props) => {
 
 
 // create a function to update the favorite count
-  const [favoriteCount, setFavoriteCount] = useState(0);
+  const [favoriteCount, setFavoriteCount] = useState(null);
   const updateFavoriteCount = (key) => {
     //update the favorite count
     update(ref(database, key), {
@@ -69,6 +70,11 @@ const StoredThoughts = (props) => {
       {/* this will be the data from firebase mounted */}
       <ul>
         {
+
+        //   //write a tenary operator to check if there are thoughts
+          thoughts.length > 0 ?
+        //   // if there are thoughts, map through them
+
         /* //loop though the array of thoughts and render each thought to the DOM */
           thoughts.map( ( { key, thought, time, favoriteCount } ) => {
             return(
@@ -84,14 +90,18 @@ const StoredThoughts = (props) => {
 
                 {/* //create a button to delete the thought */}
                 <button onClick={() => deleteThought(key)}>Delete</button>
-                <p>{props.time}</p>
+                <p>{time}</p>
               </li>
             )
           })
+          // if there are no thoughts, display a message
+          : <h3 className="alert">There are no thoughts to display</h3>
         }
+
         <li>
           <Joke />
-          <p>{props.time}</p>
+          <ImgSearch />
+          <p>{props.passedTime}</p>
         </li>
       </ul>
     </section>

@@ -10,8 +10,8 @@ const Main = () => {
   return (
     <div className="main">
       <main>
-        <ThoughtForm time={time} />
-        <StoredThoughts time={time} />
+        <ThoughtForm passedTime={time} />
+        <StoredThoughts passedTime={time} />
       </main>
     </div>
   );
