@@ -33,7 +33,7 @@
   }
   button {
     padding: 0.5rem;
-    margin: 0.5rem;
+    margin: 0.25rem;
     border: 1px solid $white;
     border-radius: 14px;
     background-color: $black;
@@ -43,5 +43,8 @@
       background-color: $white;
       color: $black;
     }
+  }
+  form {
+    margin-top: 2rem;
   }
 }

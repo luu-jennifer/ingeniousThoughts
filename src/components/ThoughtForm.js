@@ -33,6 +33,7 @@ const ThoughtForm = () => {
       // push the user's input to the database
       const obj = {
         thought: newThought,
+        mood: color,
         time: time,
         timestamp: Date.now()
       };
@@ -49,7 +50,7 @@ const ThoughtForm = () => {
   // mood color change
 
   //create variable to store color names
-  const colorNames = ['Tomato', 'Blue', 'Turquoise', 'Indigo', 'Orchid', 'Black', 'Teal'];
+  const colorNames = ['tomato', 'blue', 'turquoise', 'indigo', 'orchid', 'black', 'salmon'];
 
   // create state variable to store the color
   const [color, setColor] = useState('black');
@@ -72,23 +73,6 @@ const ThoughtForm = () => {
         style={moodColor}
       >
 
-      {/* // create a form to submit a thought */}
-        <form>
-          <label htmlFor="thought">Tell us your thought</label>
-          {/* create input field for the new thought */}
-          <input 
-            type="text" 
-            id="thought" 
-            placeholder="Enter your thought here*"
-            onChange={handleChange}
-            // set the value to the state which will be the user's input then clear the input field
-            value={newThought}
-            />
-
-          {/* create button to submit the form */}
-          <button onClick={handleSubmit}>Add Thought</button>
-        </form>
-
       <div className="moodColor">
         <p>Pick a Color to Describe your Mood: {color}</p>
           {
@@ -105,6 +89,24 @@ const ThoughtForm = () => {
             <button 
             onClick={changeColor}>Random Color</button>
           </div>
+
+
+      {/* // create a form to submit a thought */}
+        <form>
+          <label htmlFor="thought">Tell us your thought</label>
+          {/* create input field for the new thought */}
+          <input 
+            type="text" 
+            id="thought" 
+            placeholder="Enter your thought here*"
+            onChange={handleChange}
+            // set the value to the state which will be the user's input then clear the input field
+            value={newThought}
+            />
+
+          {/* create button to submit the form */}
+          <button onClick={handleSubmit}>Add Thought</button>
+        </form>
 
 
 

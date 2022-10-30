@@ -45,13 +45,17 @@ const StoredThoughts = () => {
     remove(ref(database, key));
   };
 
-// FIXME: create a function to update the favorite count onClick. useState to update the count. useEffect to update the database.
-// const [favoriteCount, setFavoriteCount] = useState(0);
 
-// const updateFavoriteCount = (key) => {
-//   // update the favorite count in the database
-//   setFavoriteCount(favoriteCount + 1);
-// };
+  
+// FIXME: create a function to update the favorite count onClick. useState to update the count. useEffect to update the database.
+const [favoriteCounter, setFavoriteCounter] = useState(0);
+
+const updateFavoriteCount = (key) => {
+  // update the favorite count in the database
+  setFavoriteCounter(favoriteCounter + 1);
+};
+
+
 
 
 
@@ -69,8 +73,16 @@ const StoredThoughts = () => {
               // create a list item for each thought
               <li key={key}>
                 <h3>{thought}</h3>
+
+
                 {/* FIXME: favorite counter styles */}
-                <div className="favCount">⭐️{favoriteCount}</div>
+                <p className="favoriteCounter">{favoriteCounter}</p>
+                <button 
+                className="favCount"
+                onClick={updateFavoriteCount}>⭐️{favoriteCount}
+                </button>
+
+
                 {/* //create a button to delete the thought */}
                 <button onClick={() => deleteThought(key)}>Delete</button>
                 <p>{time}</p>
