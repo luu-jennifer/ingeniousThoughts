@@ -52,17 +52,17 @@ const Joke = () => {
       {/* create tenary operater to toggle the joke onClick */}
       {
         showJoke
-          ? ""
-          : <>
+        ? ""
+        : <>
               <h4 className="joke">{joke}</h4>
-              <ImgSearch />
             </>
       }
+      <ImgSearch />
       <button onClick={toggleJoke}>
         {
           showJoke
-            ? "Show"
-            : "Hide"
+          ? "Show"
+          : "Hide"
         }
         </button>
     </>

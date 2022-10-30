@@ -8,7 +8,7 @@ const ImgSearch = () => {
 const [image, setImage] = useState(null);
 // create a state to hold the image alt text
 const [alt, setAlt] = useState(null);
-const apiKey = "KFVEc86N2FCiSy2KCYuY837hBK5ae4PN";
+// const apiKey = "KFVEc86N2FCiSy2KCYuY837hBK5ae4PN";
 // create a useEffect to make an API call to get the image
 useEffect(() => {
   axios({
@@ -27,29 +27,19 @@ useEffect(() => {
     params: {
         client_id: 'oc3aiu5YQIwIlbFho-eQ1bTkVtZTwqmVgSMNcAeFJ-k',
         query: 'funny',
-        per_page: 5
       }
     })
     .then((res) => {
-      console.log(res.data.urls.regular, "res.data.urls.regular");
-      console.log(res.data.alt_description, "res.data.alt_description");
       setImage(res.data.urls.regular);
       setAlt(res.data.alt_description);
     })
     .catch((err) => console.log(err));
 }, []);
-console.log(image, "image");
-console.log(alt, "alt");
-
-
-
-
 
   return (
     <div className="imgSearchContainer">
-      {/* // <App /> //pass props to App.js */}
       <div className="imgContainer">
-        <img src={image} alt={alt} />
+      <img src={image} alt={alt} />
       </div>
     </div>
   )

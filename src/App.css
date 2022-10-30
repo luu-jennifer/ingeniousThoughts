@@ -425,7 +425,6 @@ header .imgContainer img {
 .storedThoughts .imgSearchContainer .imgContainer img {
   display: block;
   max-width: 100%;
-  border: 3px solid #fff;
   border-radius: 30px;
 }
 
