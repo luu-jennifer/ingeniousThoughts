@@ -74,7 +74,8 @@ const ThoughtForm = () => {
       >
 
       <div className="moodColor">
-        <p>Pick a Color to Describe your Mood: {color}</p>
+        <p>Pick a Color to Describe your Mood:</p>
+        <p>{color}</p>
           {
             colorNames.map((colorName) => {
               return (

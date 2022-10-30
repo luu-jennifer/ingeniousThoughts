@@ -4,9 +4,6 @@
   html {
     font-size: 90%;
   }
-  header {
-    margin-top: 50%;
-  }
   .thoughtForm {
     max-width: 100%;
     .Container {
@@ -25,9 +22,6 @@
 @media (max-width: 610px) {
   html {
     font-size: 60%;
-  }
-  .storedThoughts ul li {
-    width: 100%;
   }
 }
 
