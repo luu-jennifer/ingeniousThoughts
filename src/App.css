@@ -268,24 +268,6 @@ html {
   font-size: 125%;
 }
 
-.darkMode {
-  background-color: rgb(34, 33, 33);
-}
-.darkMode .storedThoughts li {
-  background-color: rgb(34, 33, 33);
-}
-
-.lightMode {
-  background-color: rgb(208, 168, 230);
-}
-.lightMode h1,
-.lightMode p {
-  color: rgb(34, 33, 33);
-}
-.lightMode .storedThoughts li {
-  background-color: rebeccaPurple;
-}
-
 ul,
 li {
   list-style: none;
@@ -343,6 +325,33 @@ button:hover, button:focus {
   color: rebeccaPurple;
   border: 2px solid rebeccaPurple;
   transition: 0.15s;
+}
+
+.darkMode {
+  background-color: rgb(34, 33, 33);
+}
+.darkMode .storedThoughts li {
+  background-color: black;
+}
+
+.lightMode {
+  background-color: rgb(208, 168, 230);
+}
+.lightMode h1,
+.lightMode p {
+  color: rgb(34, 33, 33);
+}
+.lightMode .storedThoughts li {
+  background-color: rebeccaPurple;
+}
+.lightMode a {
+  color: rebeccaPurple;
+  text-decoration: none;
+  font-weight: bold;
+}
+.lightMode a:hover, .lightMode a:focus {
+  color: rgb(33, 106, 241);
+  text-shadow: 3px 3px rgb(235, 234, 231);
 }
 
 nav ul {

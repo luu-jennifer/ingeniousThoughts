@@ -111,10 +111,6 @@ setUserId(localStorage.getItem('thinkerUserId'));
 }, []);
 
 
-  // create function to set the userId from user's Local Storage and push it to the firegase database
-
-
-
   return(
     <section className="thoughtForm">
       <div 

@@ -6,24 +6,6 @@ html {
   font-size: 125%;
 }
 
-.darkMode {
-  background-color: $black;
-  .storedThoughts li {
-    background-color: $black;
-  }
-}
-
-.lightMode {
-  background-color: rgb(208, 168, 230);
-  h1,
-  p {
-    color: $black;
-  }
-        .storedThoughts li {
-          background-color: $tertiaryColor;
-        }
-}
-
 ul,
 li {
   list-style: none;
@@ -82,5 +64,38 @@ button {
     color: $tertiaryColor;
     border: 2px solid $tertiaryColor;
     transition: .15s;
+  }
+}
+
+.darkMode {
+  background-color: $black;
+
+  .storedThoughts li {
+    background-color: black;
+  }
+}
+
+.lightMode {
+  background-color: rgb(208, 168, 230);
+
+  h1,
+  p {
+    color: $black;
+  }
+
+  .storedThoughts li {
+    background-color: $tertiaryColor;
+  }
+
+  a {
+    color: $tertiaryColor;
+    text-decoration: none;
+    font-weight: bold;
+
+    &:hover,
+    &:focus {
+      color: $quaternaryColor;
+      text-shadow: 3px 3px $secondaryColor;
+    }
   }
 }

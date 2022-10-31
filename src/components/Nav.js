@@ -24,13 +24,13 @@ const Nav = (props) => {
 
 const [mode, setMode] = useState(getStorageMode());
 
-  const toggleMode = () => {
-    if (mode === 'lightMode') {
-      setMode('darkMode');
-    } else {
-      setMode('lightMode');
-    }
-  };
+const toggleMode = () => {
+  if (mode === 'lightMode') {
+    setMode('darkMode');
+  } else {
+    setMode('lightMode');
+  }
+};
 
   useEffect(() => {
     document.documentElement.className = mode;

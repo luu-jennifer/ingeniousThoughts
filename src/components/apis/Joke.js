@@ -39,31 +39,37 @@ const Joke = () => {
 
 }, []);
 
-  const wildcard = 'Random Thought:';
-  // create a function to delete the joke
-  const [showJoke, setShowJoke] = useState(false);
-  const toggleJoke = () => {
-    setShowJoke(!showJoke);
-  };
+  // // create a function to toggle the joke
+  // const [showJoke, setShowJoke] = useState(false);
+  // const toggleJoke = () => {
+  //   setShowJoke(!showJoke);
+  // };
+  // create a function to change the random display:none the Joke
+  const randomThought = document.getElementById("randomThought");
+  const removeWildcard = () => randomThought.style.display = "none";
+
+
   // Render the joke data
   return (
     <>
-      <h3 className="wildcard">{wildcard}</h3>
+      <h3 className="wildcard">Random Thought</h3>
       {/* create tenary operater to toggle the joke onClick */}
       {
-        showJoke
-        ? ""
-        : <div className="jokeContainer">
+        // showJoke
+        // ? ""
+        // : 
+        <div className="jokeContainer">
               <h4 className="joke">{joke}</h4>
           </div>
       }
       <ImgSearch />
-      <button onClick={toggleJoke}>
-        {
+      <button onClick={removeWildcard}>
+        Delete
+        {/* {
           showJoke
           ? "Show Thought"
           : "Hide Thought"
-        }
+        } */}
         </button>
     </>
   );

@@ -101,7 +101,7 @@ const StoredThoughts = (props) => {
           : <h3 className="alert">There are no thoughts to display</h3>
         }
 
-        <li>
+        <li id="randomThought" className="removeWildcard">
           <Joke />
           <p>{props.passedTime}</p>
         </li>
