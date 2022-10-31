@@ -1,19 +1,21 @@
 @use "./variables" as *;
 
-  .help {
-    text-align: left;
-    position: absolute;
-    max-width: 80%;
-    p {
-      color: $white;
-      border: none;
-      font-size: .9rem;
-      margin-left: 1.5rem;
-    }
-    button {
-      &:hover,
-      &:focus {
-        cursor: help;
+nav{
+  ul {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    // align-items: center;
+    padding: 1rem;
+    li {
+      padding: 1rem;
+      text-align: left;
+      max-width: 60%;
+      p {
+        margin: 1rem;
       }
     }
   }
+}
+
+

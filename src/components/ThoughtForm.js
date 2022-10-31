@@ -62,7 +62,7 @@ const ThoughtForm = (props) => {
   const colorNames = ['Tomato', 'Blue', 'Turquoise', 'Indigo', 'Orchid', 'Black', 'Salmon'];
 
   // create state variable to store the color
-  const [color, setColor] = useState('Black');
+  const [color, setColor] = useState('Indigo');
 
   // create variable to store the color the background color of .storedThoughts section will be changed to
   const moodColor = {backgroundColor: color};
@@ -76,6 +76,8 @@ const ThoughtForm = (props) => {
   };
 
   //TODO: search for an image url for thought post from a call from an API
+
+  // Create state variable to store the userId from the user's Local Storage
 
 
   return(

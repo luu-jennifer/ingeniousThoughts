@@ -61,8 +61,8 @@ const Joke = () => {
       <button onClick={toggleJoke}>
         {
           showJoke
-          ? "Show"
-          : "Hide"
+          ? "Show Thought"
+          : "Hide Thought"
         }
         </button>
     </>
