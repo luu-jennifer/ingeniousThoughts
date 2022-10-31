@@ -1,7 +1,7 @@
 // config details for Firebase database
 import firebaseConfig from "../firebase";
 // NPM modules
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getDatabase, push, ref } from "firebase/database";
 
 import Alert from "./Alert";
@@ -34,6 +34,7 @@ const ThoughtForm = (props) => {
     if (newThought !== "") {
       // push the user's input to the database
       const obj = {
+        userId: userId,
         thought: newThought,
         mood: color,
         time: props.passedTime,
@@ -77,7 +78,41 @@ const ThoughtForm = (props) => {
 
   //TODO: search for an image url for thought post from a call from an API
 
-  // Create state variable to store the userId from the user's Local Storage
+  // // Create a function to generate a unique userId for visiting users
+  // const generateUserId = () => {
+  //   return
+  //   `thinker-${Date.now().toString(36)}${Math.random().toString(36).substring(2)}`;
+  // };
+
+  // // create a function to store the userId in localStorage if it doesn't exist
+  // const storeUserId = () => {
+  //   if (!localStorage.getItem('userId')) {
+  //     localStorage.setItem('userId', generateUserId());
+  //   }
+  // };
+
+// Generating a unique user id
+const uid = () => {
+    return `thinker-${Date.now().toString(36)}${Math.random().toString(36).substring(2)}`;
+}
+  // // Create state variable to store the userId from the user's Local Storage
+  const [userId, setUserId] = useState(localStorage.getItem('userId'));
+
+  useEffect(() => {
+// Set new unique user id to localStorage if none found
+if (!localStorage.getItem('thinkerUserId')) {
+    // Generate new uid using the function above
+    const userId = uid();
+    // Sets uid into localStorage
+    localStorage.setItem('thinkerUserId', userId);
+}
+// Set the userId state to the value in localStorage
+setUserId(localStorage.getItem('thinkerUserId'));
+}, []);
+
+
+  // create function to set the userId from user's Local Storage and push it to the firegase database
+
 
 
   return(
