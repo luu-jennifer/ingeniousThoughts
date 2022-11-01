@@ -36,7 +36,9 @@ const StoredThoughts = (props) => {
           key: key, 
           thought: dataKey.thought, 
           time: dataKey.time, 
-          favoriteCount: dataKey.favoriteCount
+          favoriteCount: dataKey.favoriteCount,
+          userId: dataKey.userId,
+          mode: dataKey.mode
         });
       }
       // set the state to the array
@@ -79,12 +81,11 @@ const StoredThoughts = (props) => {
         //   // if there are thoughts, map through them
 
         /* //loop though the array of thoughts and render each thought to the DOM */
-          thoughts.map( ( { key, thought, time, favoriteCount } ) => {
+          thoughts.map( ( { key, thought, time, favoriteCount, userId } ) => {
             return(
               // create a list item for each thought
               <li key={key}>
                 <h3>{thought}</h3>
-
                 {/* create button to increase fav counter */}
                 <button
                   onClick={() => updateFavoriteCount(key, favoriteCount)}
@@ -93,6 +94,7 @@ const StoredThoughts = (props) => {
 
                 {/* //create a button to delete the thought */}
                 <button onClick={() => deleteThought(key)}>Delete</button>
+                <p>posted by: {userId}</p>
                 <p>{time}</p>
               </li>
             )

@@ -369,6 +369,21 @@ nav ul li p {
   margin: 1rem;
 }
 
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  font-size: 2rem;
+  text-shadow: 7px 6px rgb(34, 33, 33);
+  color: #fff;
+  font-weight: bold;
+  padding: 1rem;
+  background-color: rebeccaPurple;
+  border-radius: 5px;
+}
+
 header {
   margin: 10% auto 0 auto;
   color: rgb(239, 178, 208);
@@ -382,6 +397,7 @@ header {
 header h1 {
   padding: 1rem;
   margin: 1rem auto;
+  font-family: Comic Sans MS, Comic Sans, cursive;
 }
 header .imgContainer {
   width: 50%;

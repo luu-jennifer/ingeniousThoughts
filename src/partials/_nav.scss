@@ -18,4 +18,19 @@ nav{
   }
 }
 
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  font-family: $brandFont;
+  font-size: 2rem;
+  text-shadow: 7px 6px $black;
+  color: $white;
+  font-weight: bold;
+  padding: 1rem;
+  background-color: $tertiaryColor;
+  border-radius: 5px;
+}
+
 

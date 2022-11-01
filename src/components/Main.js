@@ -2,7 +2,7 @@ import StoredThoughts from "./StoredThoughts";
 import ThoughtForm from "./ThoughtForm";
 
 
-const Main = () => {
+const Main = (props) => {
     //time variables
   const date = new Date();
   const time = date.toString();
@@ -10,7 +10,7 @@ const Main = () => {
   return (
     <div className="main">
       <main>
-        <ThoughtForm passedTime={time} />
+        <ThoughtForm passedTime={time} mode={props.mode} />
         <StoredThoughts passedTime={time} />
       </main>
     </div>

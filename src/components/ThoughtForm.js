@@ -10,6 +10,7 @@ import Alert from "./Alert";
 
 // component to add thoughts to the database
 const ThoughtForm = (props) => {
+  console.log(props);
   // state variables that will hold the user's input from the form
   const [newThought, setNewThought] = useState("");
 
@@ -38,7 +39,8 @@ const ThoughtForm = (props) => {
         thought: newThought,
         mood: color,
         time: props.passedTime,
-        timestamp: Date.now()
+        timestamp: Date.now(),
+        mode: props.mode
       };
       push(dbRef, obj);
       // clear the input field
