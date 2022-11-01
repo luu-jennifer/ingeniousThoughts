@@ -50,13 +50,14 @@ function App() {
     <div className="App">
       <nav>
         <div className="logo">
-          <Link to="/">
+          <NavLink to="/">
               <h2>Thinker</h2>
-          </Link>
+          </NavLink>
         </div>
         <div className="navContainer">
           <ul>
             {/* create router and route */}
+            <li className="home navLink"><NavLink to="/">Home</NavLink></li>
             <li className="about navLink"><NavLink to="/about">About</NavLink></li>
             <li className="help navLink"><NavLink to="/help">Help</NavLink></li>
             <li>

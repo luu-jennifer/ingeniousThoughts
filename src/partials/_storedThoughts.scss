@@ -27,7 +27,7 @@
   p {
     color: $white;
     font-size: .85rem;
-    line-height: .95rem; //FIXME: update line-height so spacing for p is smaller by doesn't overlap text on next line
+    line-height: .95rem;
   }
   li {
     border: 2px solid $primaryColor;
@@ -58,6 +58,7 @@
 
   .jokeContainer {
     max-width: 100%;
+    word-wrap: break-word;
   }
   .imgSearchContainer {
     max-width: 50%;

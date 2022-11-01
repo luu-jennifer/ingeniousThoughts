@@ -5,6 +5,7 @@ import firebaseConfig from "../firebase";
 import { useState, useEffect } from "react";
 import { getDatabase, onValue, ref, remove, update } from "firebase/database";
 import Joke from "./apis/Joke";
+import ImgSearch from './apis/ImgSearch';
 
 //FIXME: 
 //1. Fix counter bug to start at stored value
@@ -109,6 +110,7 @@ const StoredThoughts = (props) => {
               // create a list item for each thought
               <li key={key}>
                 <h3>{thought}</h3>
+                <ImgSearch />
                 {/* create button to increase fav counter */}
                 <button
                   onClick={() => updateFavoriteCount(key, favoriteCount)}

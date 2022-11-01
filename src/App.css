@@ -351,7 +351,6 @@ button:hover, button:focus {
 }
 .lightMode a:hover, .lightMode a:focus {
   color: rgb(33, 106, 241);
-  text-shadow: 3px 3px rgb(235, 234, 231);
 }
 
 nav {
@@ -431,6 +430,48 @@ header .imgContainer img {
   max-width: 300px;
 }
 
+.about .flexContainer {
+  display: flex;
+  flex-direction: row;
+  margin: 4rem auto;
+}
+.about .imgContainer img {
+  border-radius: 50%;
+  border: 2px solid rgb(235, 234, 231);
+  max-width: 30vw;
+}
+.about .socialAccContainer {
+  max-width: 50%;
+  margin: 0 auto;
+}
+.about .socialAccContainer ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.about .socialAccContainer ul li {
+  max-width: 60%;
+}
+.about .socialAccContainer a img {
+  margin: 1rem auto;
+  padding: 0.3rem;
+}
+.about .socialAccContainer a img:hover, .about .socialAccContainer a img:focus {
+  background-color: rgb(239, 178, 208);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.about .contentContainer {
+  max-width: 60%;
+  margin: 2rem auto 4rem;
+}
+.about .contentContainer p {
+  margin: 1rem auto;
+  padding: 1rem;
+  text-align: left;
+}
+
 .storedThoughts,
 .thoughtCard {
   margin: 3rem auto;
@@ -496,6 +537,7 @@ header .imgContainer img {
 .storedThoughts .jokeContainer,
 .thoughtCard .jokeContainer {
   max-width: 100%;
+  word-wrap: break-word;
 }
 .storedThoughts .imgSearchContainer,
 .thoughtCard .imgSearchContainer {
