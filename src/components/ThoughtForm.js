@@ -10,7 +10,6 @@ import Alert from "./Alert";
 
 // component to add thoughts to the database
 const ThoughtForm = (props) => {
-  console.log(props);
   // state variables that will hold the user's input from the form
   const [newThought, setNewThought] = useState("");
 

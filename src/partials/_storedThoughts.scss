@@ -25,7 +25,8 @@
   }
   p {
     color: $white;
-    font-size: .6rem;
+    font-size: .85rem;
+    line-height: 0; //FIXME: update line-height so spacing for p is smaller by doesn't overlap text on next line
   }
   li {
     border: 2px solid $primaryColor;
@@ -33,7 +34,6 @@
     padding: .5rem .5rem;
     margin: .5rem .5rem;
     width: 30vw;
-
     &:hover,
     &:focus {
       box-shadow: .1rem .1rem 1rem $white;

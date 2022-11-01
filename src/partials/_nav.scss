@@ -1,11 +1,13 @@
 @use "./variables" as *;
 
 nav{
+  display: flex;
+  justify-content: space-between;
   ul {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    // align-items: center;
+    align-items: center;
     padding: 1rem;
     li {
       padding: 1rem;
@@ -16,7 +18,24 @@ nav{
       }
     }
   }
+  a  {
+    border: 2px solid $white;
+    color: $white;
+    background-color: $tertiaryColor;
+    margin: 0 auto;
+    padding: .5rem;
+    border-radius: 10px;
+    font-size: 100%;
+    &:hover,
+    &:focus {
+      background-color: $white;
+      color: $tertiaryColor;
+      border: 2px solid $tertiaryColor;
+      transition: .15s;
+    }
+  }
 }
+
 
 .logo {
   display: flex;
@@ -31,6 +50,6 @@ nav{
   padding: 1rem;
   background-color: $tertiaryColor;
   border-radius: 5px;
+  max-width: 8rem;
+  max-height: 4rem;
 }
-
-

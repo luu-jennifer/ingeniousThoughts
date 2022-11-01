@@ -1,5 +1,5 @@
 import "./App.css";
-// import Nav from "./components/_Nav";
+import { Routes, Route } from 'react-router-dom';
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
@@ -40,36 +40,18 @@ function App() {
     document.documentElement.className = mode;
     localStorage.setItem('mode', mode);
   }, [mode]);
-  
-  //initial state is false
-  const [showAbout, setShowAbout] = useState(false);
-  
-  //toggle the state
-  const toggleAbout = () => {
-    setShowAbout(!showAbout);
-  };
 
   return (
     <div className="App">
       <nav>
+      <div className="logo">
+        <h2>Thinker</h2>
+      </div>
         <div className="navContainer">
           <ul>
-            <li>
-              <button onClick={toggleAbout}>
-                {
-                  showAbout 
-                  ? "X" 
-                  : "Help"
-                } 
-              </button>
-              <p>
-                {
-                  showAbout
-                  ? "Type in your thought and click the button to share them with the world."
-                  : ""
-                }
-              </p>            
-            </li>
+            {/* create router and route */}
+            <li className="about"><a href="">About</a></li>
+            <li className="help"><a href="">Help</a></li>
             <li>
             {/* //   -create a toggle button to toggle the theme on click */}
               <button className="toggleMode" onClick={toggleMode}>
@@ -102,5 +84,4 @@ export default App;
 // 6. update metadata and favicon
 // 7. update readme
 // 8. Add logic to form to add an image from API to the thought
-// 9. ***Working 3****create an userId for each thought where ID is equal to the used LocalStorage ID
 // 10. Add Dark Mode and default to visitor's preference

@@ -354,10 +354,15 @@ button:hover, button:focus {
   text-shadow: 3px 3px rgb(235, 234, 231);
 }
 
+nav {
+  display: flex;
+  justify-content: space-between;
+}
 nav ul {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+  align-items: center;
   padding: 1rem;
 }
 nav ul li {
@@ -367,6 +372,21 @@ nav ul li {
 }
 nav ul li p {
   margin: 1rem;
+}
+nav a {
+  border: 2px solid #fff;
+  color: #fff;
+  background-color: rebeccaPurple;
+  margin: 0 auto;
+  padding: 0.5rem;
+  border-radius: 10px;
+  font-size: 100%;
+}
+nav a:hover, nav a:focus {
+  background-color: #fff;
+  color: rebeccaPurple;
+  border: 2px solid rebeccaPurple;
+  transition: 0.15s;
 }
 
 .logo {
@@ -382,6 +402,8 @@ nav ul li p {
   padding: 1rem;
   background-color: rebeccaPurple;
   border-radius: 5px;
+  max-width: 8rem;
+  max-height: 4rem;
 }
 
 header {
@@ -434,7 +456,8 @@ header .imgContainer img {
 }
 .storedThoughts p {
   color: #fff;
-  font-size: 0.6rem;
+  font-size: 0.85rem;
+  line-height: 0;
 }
 .storedThoughts li {
   border: 2px solid rgb(239, 178, 208);
