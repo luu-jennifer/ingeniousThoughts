@@ -1,14 +1,16 @@
+import Header from "./Header";
 import StoredThoughts from "./StoredThoughts";
 import ThoughtForm from "./ThoughtForm";
 
 
-const Main = (props) => {
+const Home = (props) => {
     //time variables
   const date = new Date();
   const time = date.toString();
 
   return (
-    <div className="main">
+    <div className="Home">
+      <Header />
       <main>
         <ThoughtForm passedTime={time} mode={props.mode} />
         <StoredThoughts passedTime={time} />
@@ -17,4 +19,4 @@ const Main = (props) => {
   );
 }
 
-export default Main;
+export default Home;

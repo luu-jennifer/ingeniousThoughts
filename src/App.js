@@ -1,8 +1,14 @@
 import "./App.css";
-import { Routes, Route } from 'react-router-dom';
-import Header from "./components/Header";
-import Main from "./components/Main";
+import { 
+  NavLink,
+  Link,
+  Routes, 
+  Route 
+} from 'react-router-dom';
+import Home from "./components/Home";
 import Footer from "./components/Footer";
+import About from "./components/About";
+import Help from "./components/Help";
 
 import { useState, useEffect } from "react";
 
@@ -23,7 +29,6 @@ function App() {
   
   //   -create state variable to store the theme
   const [mode, setMode] = useState(getStorageMode());
-  
   //   -create a function to toggle the theme
   const toggleMode = () => {
     //     -if the theme is dark, set the localStorage theme to dark
@@ -34,7 +39,6 @@ function App() {
       setMode('lightMode');
     }
   };
-  
   //     -use the useEffect hook to set the theme
   useEffect(() => {
     document.documentElement.className = mode;
@@ -44,14 +48,16 @@ function App() {
   return (
     <div className="App">
       <nav>
-      <div className="logo">
-        <h2>Thinker</h2>
-      </div>
+        <div className="logo">
+          <Link to="/">
+              <h2>Thinker</h2>
+          </Link>
+        </div>
         <div className="navContainer">
           <ul>
             {/* create router and route */}
-            <li className="about"><a href="">About</a></li>
-            <li className="help"><a href="">Help</a></li>
+            <li className="about navLink"><NavLink to="/about">About</NavLink></li>
+            <li className="help navLink"><NavLink to="/help">Help</NavLink></li>
             <li>
             {/* //   -create a toggle button to toggle the theme on click */}
               <button className="toggleMode" onClick={toggleMode}>
@@ -65,9 +71,14 @@ function App() {
         </div>
       </nav>
 
-      <Header />
-      <Main mode={mode} />
-      <Footer />
+      {/* Create routes for About, Help, users */}
+      <Routes>
+        <Route path="/" element={<Home mode={mode} />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/help" element={<Help />} /> 
+        {/* <Route path="/users" element={<Users />} /> */}
+      </Routes>
+        <Footer />
     </div>
   );
 }
