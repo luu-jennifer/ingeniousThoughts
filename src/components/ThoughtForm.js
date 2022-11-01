@@ -34,6 +34,7 @@ const ThoughtForm = (props) => {
     if (newThought !== "") {
       // push the user's input to the database
       const obj = {
+        key: userId,
         userId: userId,
         thought: newThought,
         mood: color,
@@ -41,7 +42,7 @@ const ThoughtForm = (props) => {
         timestamp: Date.now(),
         mode: props.mode
       };
-      push(dbRef, obj);
+      push().set(dbRef, obj);
       // clear the input field
       setNewThought("");
       // set the alert-thanks

@@ -9,6 +9,7 @@ import Home from "./components/Home";
 import Footer from "./components/Footer";
 import About from "./components/About";
 import Help from "./components/Help";
+import User from "./components/User";
 
 import { useState, useEffect } from "react";
 
@@ -76,7 +77,7 @@ function App() {
         <Route path="/" element={<Home mode={mode} />} />
         <Route path="/about" element={<About />} />
         <Route path="/help" element={<Help />} /> 
-        {/* <Route path="/users" element={<Users />} /> */}
+        <Route path="/thinker/:userId" element={<User />} />
       </Routes>
         <Footer />
     </div>

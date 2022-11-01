@@ -19,9 +19,9 @@ nav{
     }
   }
   a  {
-    padding: 0 1rem;
+    padding: 0 .25rem;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1rem;
     
   }
   .help a {
@@ -51,6 +51,7 @@ nav{
   &:hover,
   &:focus {
     background-color: $quaternaryColor;
+    text-shadow: 7px 6px $black;
     transition: .15s;
     cursor: pointer;
   }

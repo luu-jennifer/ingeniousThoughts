@@ -1,18 +1,36 @@
+import profilePic from "../assets/profilePic.jpeg";
+import github from "../assets/github.png";
+import linkedIn from "../assets/linkedIn.png";
+import twitter from "../assets/twitter.png";
+
 const About = () => {
+
   return (
-    <div className="about">
-      <h1>About</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-        condimentum, eros eget aliquet ultricies, nunc nisl aliquet turpis, eget
-        lacinia nisl leo et augue. Nullam in ligula ut dolor suscipit lacinia.
-        Nulla facilisi. Nullam quis semper odio. Nullam euismod, est nec
-        ultricies luctus, mi nunc aliquet libero, vel lacinia nisl nunc id
-        ligula. Nulla facilisi. Donec auctor, nunc vitae tempus aliquet, nunc
-        justo ultricies nunc, eu commodo nibh odio in enim. Pellentesque
-        habitant morbi tristique sen
-      </p>
-    </div>
+    // TODO: add img of me and about me
+
+    <section className="about">
+      <div className="flexContainer">
+        <div className="imgContainer">
+          <img src={profilePic} alt="me" />
+        </div>
+        <div className="socialAccContainer">
+          {/* github, twitter and linkedin */}
+          <a href="https://github.com/luu-jennifer" target="_blank" rel="noreferrer"><img src={github} alt="GitHub logo" /></a>
+          <a href="https://linkedin.com/in/jenCodes" target="_blank" rel="noreferrer"><img src={linkedIn} alt="LinkedIn logo" /></a>
+          <a href="https://twitter.com/jenCodes" target="_blank" rel="noreferrer"><img src={twitter} alt="Twitter logo" /></a>
+        </div>
+        <div className="contentContainer">
+          <h2>About the Developer</h2>
+          <p>
+            Hi, I'm Jen. I'm a full-stack developer and designer. I recently graduated from Juno College of Technology. I'm passionate about creating beautiful and functional web applications. I'm also passionate about learning and growing as a developer. I'm always looking for new opportunities to learn and grow. I'm currently looking for a junior developer role. If you're interested in working with me, please reach out to me via email or social media.
+          </p>
+          <h2>About the App: Thinker</h2>
+          <p>
+            Thinker is a simple app that allows users to share their thoughts with the world. Users can type in their thoughts and click the button to share them with the world. Users can also delete their thoughts.
+          </p>
+        </div>
+      </div>
+    </section>
   );
 };
 

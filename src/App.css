@@ -374,9 +374,9 @@ nav ul li p {
   margin: 1rem;
 }
 nav a {
-  padding: 0 1rem;
+  padding: 0 0.25rem;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 nav .help a:hover, nav .help a:focus {
   cursor: help;
@@ -400,6 +400,7 @@ nav .help a:hover, nav .help a:focus {
 }
 .logo a:hover, .logo a:focus {
   background-color: rgb(33, 106, 241);
+  text-shadow: 7px 6px rgb(34, 33, 33);
   transition: 0.15s;
   cursor: pointer;
 }
@@ -430,21 +431,26 @@ header .imgContainer img {
   max-width: 300px;
 }
 
-.storedThoughts {
+.storedThoughts,
+.thoughtCard {
   margin: 3rem auto;
 }
-.storedThoughts button {
+.storedThoughts button,
+.thoughtCard button {
   border: 1px solid rgb(33, 106, 241);
   background-color: rgb(34, 33, 33);
   color: #fff;
   margin: 0.5rem;
 }
-.storedThoughts button:hover, .storedThoughts button:focus {
+.storedThoughts button:hover, .storedThoughts button:focus,
+.thoughtCard button:hover,
+.thoughtCard button:focus {
   background-color: rgb(235, 234, 231);
   color: rgb(34, 33, 33);
   cursor: pointer;
 }
-.storedThoughts ul {
+.storedThoughts ul,
+.thoughtCard ul {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -452,51 +458,87 @@ header .imgContainer img {
   margin: 0 auto;
   padding: 0;
 }
-.storedThoughts p {
+.storedThoughts p,
+.thoughtCard p {
   color: #fff;
   font-size: 0.85rem;
-  line-height: 0;
+  line-height: 0.95rem;
 }
-.storedThoughts li {
+.storedThoughts li,
+.thoughtCard li {
   border: 2px solid rgb(239, 178, 208);
   border-radius: 30px;
   padding: 0.5rem 0.5rem;
   margin: 0.5rem 0.5rem;
   width: 30vw;
 }
-.storedThoughts li:hover, .storedThoughts li:focus {
+.storedThoughts li:hover, .storedThoughts li:focus,
+.thoughtCard li:hover,
+.thoughtCard li:focus {
   box-shadow: 0.1rem 0.1rem 1rem #fff;
   cursor: crosshair;
   transition: 0.2s;
   border: 1px solid rgb(235, 234, 231);
 }
 .storedThoughts li h3,
-.storedThoughts li h4 {
+.storedThoughts li h4,
+.thoughtCard li h3,
+.thoughtCard li h4 {
   color: rgb(235, 234, 231);
   padding: 1rem;
   margin: 0.5rem auto;
 }
-.storedThoughts .wildcard {
+.storedThoughts .wildcard,
+.thoughtCard .wildcard {
   font-style: italic;
   text-transform: uppercase;
 }
-.storedThoughts .jokeContainer {
+.storedThoughts .jokeContainer,
+.thoughtCard .jokeContainer {
   max-width: 100%;
 }
-.storedThoughts .imgSearchContainer {
+.storedThoughts .imgSearchContainer,
+.thoughtCard .imgSearchContainer {
   max-width: 50%;
   margin: 0 auto 1rem auto;
 }
-.storedThoughts .imgSearchContainer .imgContainer {
+.storedThoughts .imgSearchContainer .imgContainer,
+.thoughtCard .imgSearchContainer .imgContainer {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0.2rem;
 }
-.storedThoughts .imgSearchContainer .imgContainer img {
+.storedThoughts .imgSearchContainer .imgContainer img,
+.thoughtCard .imgSearchContainer .imgContainer img {
   display: block;
   max-width: 100%;
   border-radius: 30px;
+}
+.storedThoughts a,
+.thoughtCard a {
+  color: yellow;
+}
+.storedThoughts a:hover, .storedThoughts a:focus,
+.thoughtCard a:hover,
+.thoughtCard a:focus {
+  color: rgb(235, 234, 231);
+}
+
+.userThoughts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 4rem auto;
+  padding: 0;
+  max-width: 100%;
+  background-color: rgb(34, 33, 33);
+  border-radius: 30px;
+  padding: 1rem;
+}
+.userThoughts .contentContainer {
+  max-width: 80%;
 }
 
 .thoughtForm {

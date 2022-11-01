@@ -1,10 +1,9 @@
-
-import "../partials/_storedThoughts.scss";
+import { Link } from 'react-router-dom';
 // firebase config details
 import firebaseConfig from "../firebase";
 // NPM modules
 import { useState, useEffect } from "react";
-import { getDatabase, onValue, ref, remove, update} from "firebase/database";
+import { getDatabase, onValue, ref, remove, update } from "firebase/database";
 import Joke from "./apis/Joke";
 
 //FIXME: 
@@ -19,6 +18,8 @@ const StoredThoughts = (props) => {
   const database = getDatabase(firebaseConfig);
   // variable to hold the database reference
   const dbRef = ref(database);
+
+  // TODO: REFRACTOR CODE TO USE A FUNCTION TO HANDLE THE onValue FUNCTION AND THE useEffect FUNCTION. Place the function in App.js and pass it down as a prop to the components that need it.
 
   // render thoughts from firebase
   useEffect(() => {
@@ -53,16 +54,38 @@ const StoredThoughts = (props) => {
   };
 
 
-// create a function to update the favorite count
+// // create a function to update the favorite count
   const [favoriteCount, setFavoriteCount] = useState(null);
   const updateFavoriteCount = (key) => {
-    //update the favorite count
-    update(ref(database, key), {
-      favoriteCount: favoriteCount + 1
-    });
-    //set the favorite count to the new value
-    setFavoriteCount(favoriteCount + 1);
+  //update the favorite count
+  update(ref(database, key), {
+    favoriteCount: favoriteCount + 1
+  });
+  //set the favorite count to the new value
+  setFavoriteCount(favoriteCount + 1);
   };
+  
+
+// function toggleStar(key) {
+
+//   const postRef = ref(database, key);
+
+//   runTransaction(postRef, (post) => {
+//     if (post) {
+//       if (post.favoriteCount && post.favouriteCount[key]) {
+//         post.starCount--;
+//         post.stars[uid] = null;
+//       } else {
+//         post.starCount++;
+//         if (!post.stars) {
+//           post.stars = {};
+//         }
+//         post.stars[uid] = true;
+//       }
+//     }
+//     return post;
+//   });
+// }
 
 
 
@@ -94,7 +117,9 @@ const StoredThoughts = (props) => {
 
                 {/* //create a button to delete the thought */}
                 <button onClick={() => deleteThought(key)}>Delete</button>
-                <p>posted by: {userId}</p>
+                <p>Posted by: 
+                  <Link to={`/thinker/${userId}`}> { userId }</Link>
+                </p>
                 <p>{time}</p>
               </li>
             )

@@ -1,7 +1,8 @@
 //storedThoughts
 @use "./variables" as *;
 
-.storedThoughts {
+.storedThoughts,
+.thoughtCard {
   margin: 3rem auto;
   button {
     border: 1px solid $quaternaryColor;
@@ -26,7 +27,7 @@
   p {
     color: $white;
     font-size: .85rem;
-    line-height: 0; //FIXME: update line-height so spacing for p is smaller by doesn't overlap text on next line
+    line-height: .95rem; //FIXME: update line-height so spacing for p is smaller by doesn't overlap text on next line
   }
   li {
     border: 2px solid $primaryColor;
@@ -73,6 +74,28 @@
       }
     }
   }
+  a {
+    color: yellow;
+    &:hover,
+    &:focus {
+      color: $secondaryColor;
+    }
+  }
 }
 
+.userThoughts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 4rem auto;
+  padding: 0;
+  max-width: 100%;
+  background-color: $black;
+  border-radius: 30px;
+  padding: 1rem;
+  .contentContainer {
+    max-width: 80%;
+  }
+}
 
