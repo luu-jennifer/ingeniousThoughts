@@ -1,7 +1,6 @@
 import "./App.css";
 import { 
   NavLink,
-  Link,
   Routes, 
   Route 
 } from 'react-router-dom';
@@ -57,7 +56,6 @@ function App() {
         <div className="navContainer">
           <ul>
             {/* create router and route */}
-            <li className="home navLink"><NavLink to="/">Home</NavLink></li>
             <li className="about navLink"><NavLink to="/about">About</NavLink></li>
             <li className="help navLink"><NavLink to="/help">Help</NavLink></li>
             <li>

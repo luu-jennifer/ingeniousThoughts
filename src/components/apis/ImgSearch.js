@@ -6,7 +6,7 @@ const ImgSearch = () => {
 // create a state to hold the image
 const [image, setImage] = useState(null);
 const [alt, setAlt] = useState(null);
-const apiKey = "KFVEc86N2FCiSy2KCYuY837hBK5ae4PN";
+// const apiKey = "KFVEc86N2FCiSy2KCYuY837hBK5ae4PN";
 // create a useEffect to make an API call to get the image
 useEffect(() => {
   axios({
