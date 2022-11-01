@@ -40,7 +40,8 @@ const StoredThoughts = (props) => {
           time: dataKey.time, 
           favoriteCount: dataKey.favoriteCount,
           userId: dataKey.userId,
-          mode: dataKey.mode
+          mode: dataKey.mode,
+          mood: dataKey.mood
         });
       }
       // set the state to the array
@@ -48,13 +49,17 @@ const StoredThoughts = (props) => {
     });
   }, [dbRef]);
 
+
+  // create a variable to store the color background color of the container will be changed to mood color
+  // const moodContainer = {backgroundColor: mood};
+
   // create a function to delete a thought
   const deleteThought = (key) => {
     // remove the thought from the database
     remove(ref(database, key));
   };
 
-
+  //FIXME: use transaction to update the favorite count
 // // create a function to update the favorite count
   const [favoriteCount, setFavoriteCount] = useState(null);
   const updateFavoriteCount = (key) => {
@@ -105,20 +110,25 @@ const StoredThoughts = (props) => {
         //   // if there are thoughts, map through them
 
         /* //loop though the array of thoughts and render each thought to the DOM */
-          thoughts.map( ( { key, thought, time, favoriteCount, userId } ) => {
+          thoughts.map( ( { key, thought, time, favoriteCount, userId, mood } ) => {
             return(
               // create a list item for each thought
-              <li key={key}>
+              <li
+              style={{border: `.75rem solid ${mood}`}}
+              key={key}>
                 <h3>{thought}</h3>
                 <ImgSearch />
                 {/* create button to increase fav counter */}
                 <button
+                  style={{border: `.1rem solid ${mood}`}}
                   onClick={() => updateFavoriteCount(key, favoriteCount)}
                   >{favoriteCount} ⭐️
                 </button>
 
                 {/* //create a button to delete the thought */}
-                <button onClick={() => deleteThought(key)}>Delete</button>
+                <button 
+                  style={{border: `.1rem solid ${mood}`}}
+                  onClick={() => deleteThought(key)}>Delete</button>
                 <p>Posted by: 
                   <Link to={`/thinker/${userId}`}> { userId }</Link>
                 </p>

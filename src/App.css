@@ -478,7 +478,6 @@ header .imgContainer img {
 }
 .storedThoughts button,
 .thoughtCard button {
-  border: 1px solid rgb(33, 106, 241);
   background-color: rgb(34, 33, 33);
   color: #fff;
   margin: 0.5rem;
@@ -507,10 +506,9 @@ header .imgContainer img {
 }
 .storedThoughts li,
 .thoughtCard li {
-  border: 2px solid rgb(239, 178, 208);
   border-radius: 30px;
   padding: 0.5rem 0.5rem;
-  margin: 0.5rem 0.5rem;
+  margin: 0.75rem 0.5rem;
   width: 30vw;
 }
 .storedThoughts li:hover, .storedThoughts li:focus,

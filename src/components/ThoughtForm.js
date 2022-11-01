@@ -40,7 +40,7 @@ const ThoughtForm = (props) => {
         mood: color,
         time: props.passedTime,
         timestamp: Date.now(),
-        mode: props.mode
+        mode: props.mode,
       };
       push(dbRef, obj);
       // clear the input field

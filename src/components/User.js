@@ -45,6 +45,7 @@ const User = () => {
             favoriteCount: dataKey.favoriteCount,
             userId: dataKey.userId,
             mode: dataKey.mode,
+            mood: dataKey.mood
         });
 
 
@@ -78,20 +79,25 @@ const User = () => {
       <h2>Thoughts from {userId}</h2>
       </div>
       <ul className="thoughtCard">
-        {userThought.map(( { key,thought, time, favoriteCount, userId } ) => {
+        {userThought.map(( { key,thought, time, favoriteCount, userId, mood } ) => {
           return (
               // create a list item for each thought
-              <li key={key}>
+              <li 
+                style={{border: `.75rem solid ${mood}`}}
+                key={key}>
                 <h3>{thought}</h3>
                 <ImgSearch />
                 {/* create button to increase fav counter */}
                 <button
+                  style={{border: `.1rem solid ${mood}`}}
                   onClick={() => updateFavoriteCount(key, favoriteCount)}
                   >{favoriteCount} ⭐️
                 </button>
 
                 {/* //create a button to delete the thought */}
-                <button onClick={() => deleteThought(key)}>Delete</button>
+                <button 
+                  style={{border: `.1rem solid ${mood}`}}
+                  onClick={() => deleteThought(key)}>Delete</button>
                 <p>Posted by: 
                   <Link to={`/thinker/${userId}`}> { userId }</Link>
                 </p>
