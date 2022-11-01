@@ -130,7 +130,9 @@ const StoredThoughts = (props) => {
                   style={{border: `.1rem solid ${mood}`}}
                   onClick={() => deleteThought(key)}>Delete</button>
                 <p>Posted by: 
-                  <Link to={`/thinker/${userId}`}> { userId }</Link>
+                  <Link 
+                  style={{border: `.1rem solid ${mood}`}}
+                  to={`/thinker/${userId}`}> { userId }</Link>
                 </p>
                 <p>{time}</p>
               </li>

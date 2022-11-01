@@ -5,7 +5,6 @@
 .thoughtCard {
   margin: 3rem auto;
   button {
-    // border: 1px solid $quaternaryColor;
     background-color: $black;
     color: $white;
     margin: .5rem;
@@ -75,10 +74,16 @@
     }
   }
   a {
-    color: yellow;
+    background-color: $black;
+    color: $white;
+    margin: .5rem;
+    padding: .5rem;
+    border-radius: 30px;
     &:hover,
     &:focus {
-      color: $secondaryColor;
+      background-color: $secondaryColor;
+      color: $black;
+      cursor: pointer;
     }
   }
 }

@@ -557,12 +557,18 @@ header .imgContainer img {
 }
 .storedThoughts a,
 .thoughtCard a {
-  color: yellow;
+  background-color: rgb(34, 33, 33);
+  color: #fff;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 30px;
 }
 .storedThoughts a:hover, .storedThoughts a:focus,
 .thoughtCard a:hover,
 .thoughtCard a:focus {
-  color: rgb(235, 234, 231);
+  background-color: rgb(235, 234, 231);
+  color: rgb(34, 33, 33);
+  cursor: pointer;
 }
 
 .userThoughts {

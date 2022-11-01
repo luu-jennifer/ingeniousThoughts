@@ -98,7 +98,8 @@ const User = () => {
                 <button 
                   style={{border: `.1rem solid ${mood}`}}
                   onClick={() => deleteThought(key)}>Delete</button>
-                <p>Posted by: 
+                <p>Posted by:
+                  style={{border: `.1rem solid ${mood}`}}                   
                   <Link to={`/thinker/${userId}`}> { userId }</Link>
                 </p>
                 <p>{time}</p>
