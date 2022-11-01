@@ -12,6 +12,7 @@ import User from "./components/User";
 
 import { useState, useEffect } from "react";
 
+//TODO: import light(sun) and dark(moon) mode gifs for button
 
 // /*Light Mode and Dark Mode Toggle
 //   -create a function to get local storage theme value and set it to a variable
@@ -63,7 +64,7 @@ function App() {
               <button className="toggleMode" onClick={toggleMode}>
                 {
                   //write ternary operator to toggle the button text
-                  mode === 'lightMode' ? 'Dark Mode' : 'Light Mode'
+                  mode === 'lightMode' ? 'Dark Mode = Off' : 'Dark Mode = On'
                 }
               </button>
             </li>
@@ -88,15 +89,14 @@ export default App;
 
 //TODO:
 // 1. Add a form to the Optional component to allow the user to enter a city and get the temperature for that city.
-// 2. *****Working 2 ***Add a form to the Optional component to allow the user to enter a thought and get the details for that thought.
-        //2.1. Create Accordian effect for the thought details to show and hide
+// 2. Add a form to the Optional component to allow the user to enter a thought and get the details for that thought.
+        //2.1. Create accordion effect for the thought details to show and hide 
+        // >>>Help Q&A
 // 3. FIXME: Update FavoriteCount styles and functionality to start at stored value
 // 4. FIXME: button sizing for mobile
 // 6. update metadata and favicon
 // 7. update readme
-// 8. Add logic to form to add an image from API to the thought
-// 10. Add Dark Mode and default to visitor's preference
-  // 11. create a function to random generate image url+alt from the firebase images that are stored in the database for the Random Joke care
+  //WORKING** 11. create a function to random generate image url+alt from the firebase images that are stored in the database for the Random Joke care
     // 12. create a secondary firebase database to store the image urls and alt text
   // 13. set 3 thoughts to be displayed on the page by default from firebase
   // 14. create a function to get the user's location and display the weather for that location

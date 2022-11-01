@@ -15,7 +15,6 @@ const Joke = () => {
   })
   .then( (res) => {
     setJoke(res.data.joke);
-    console.log(res.data.joke, 'res.data.joke');
   })
   //handle error from Axios docs
   .catch(function (error) {
@@ -53,7 +52,7 @@ const Joke = () => {
   return (
     <>
       <h3 className="wildcard">Random Thought</h3>
-      {/* create tenary operater to toggle the joke onClick */}
+      {/* create ternary operator to toggle the joke onClick */}
       {
         // showJoke
         // ? ""
