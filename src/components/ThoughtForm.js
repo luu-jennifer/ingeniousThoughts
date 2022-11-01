@@ -42,7 +42,7 @@ const ThoughtForm = (props) => {
         timestamp: Date.now(),
         mode: props.mode
       };
-      push().set(dbRef, obj);
+      push(dbRef, obj);
       // clear the input field
       setNewThought("");
       // set the alert-thanks

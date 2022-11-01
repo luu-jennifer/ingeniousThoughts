@@ -21,6 +21,8 @@ const User = () => {
       const data = res.val();
       for (let key in data) {
         let dataKey = data[key];
+        const userThoughtCard = document.getElementsByClassName("thoughtCard");
+
         // if (dataKey.userId === userId) {
         //   newState.push({
         //     key: key,
@@ -30,9 +32,11 @@ const User = () => {
         //     userId: dataKey.userId,
         //     mode: dataKey.mode,
         //   });
-        if (dataKey.userId !== userId) {
-          //if userId is not found then render alert message
-          <h2 className="alert">Sorry, we can't find this user. Please go back to Home</h2>
+
+
+
+        if ( dataKey.userId !== userId || dataKey.userId === null ) {
+          userThoughtCard.innerHTML = `<li><h3>Sorry, this can not be found.</h3><p> Please return to the homepage ${userId}.</p></li>`;
         } else {
           newState.push({
             key: key,
@@ -42,6 +46,9 @@ const User = () => {
             userId: dataKey.userId,
             mode: dataKey.mode,
         });
+
+
+
           setUserThought(newState); 
       }
     }
