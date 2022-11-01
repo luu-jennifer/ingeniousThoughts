@@ -5,10 +5,10 @@ import firebaseConfig from "../firebase";
 import { useState, useEffect } from "react";
 import { getDatabase, onValue, ref, remove, update } from "firebase/database";
 import Joke from "./apis/Joke";
-import ImgSearch from './apis/ImgSearch';
+// import ImgSearch from './apis/ImgSearch';
 
 //FIXME: 
-//1. Fix counter bug to start at stored value
+//1. Fix counter bug to start at stored value by using transaction()
 
 
 
@@ -33,6 +33,7 @@ const StoredThoughts = (props) => {
       // loop through the data
       for (let key in data) {
         let dataKey = data[key];
+        let dataKeyImg = data[key].image;
         // push the data into the array
         newState.push({ 
           key: key, 
@@ -41,7 +42,9 @@ const StoredThoughts = (props) => {
           favoriteCount: dataKey.favoriteCount,
           userId: dataKey.userId,
           mode: dataKey.mode,
-          mood: dataKey.mood
+          mood: dataKey.mood,
+          imgUrl: dataKeyImg.imgUrl,
+          altText: dataKeyImg.altText,
         });
       }
       // set the state to the array
@@ -110,14 +113,20 @@ const StoredThoughts = (props) => {
         //   // if there are thoughts, map through them
 
         /* //loop though the array of thoughts and render each thought to the DOM */
-          thoughts.map( ( { key, thought, time, favoriteCount, userId, mood } ) => {
+          thoughts.map( ( { key, thought, time, favoriteCount, userId, mood, imgUrl, altText } ) => {
             return(
               // create a list item for each thought
               <li
               style={{border: `.75rem solid ${mood}`}}
               key={key}>
                 <h3>{thought}</h3>
-                <ImgSearch />
+                
+              <div className="imgSearchContainer">
+                <div className="imgContainer">
+                  <img src={imgUrl} alt={altText} />
+                </div>
+              </div>
+
                 {/* create button to increase fav counter */}
                 <button
                   style={{border: `.1rem solid ${mood}`}}

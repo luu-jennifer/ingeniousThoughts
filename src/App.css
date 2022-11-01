@@ -472,25 +472,20 @@ header .imgContainer img {
   text-align: left;
 }
 
-.storedThoughts,
-.thoughtCard {
+.storedThoughts {
   margin: 3rem auto;
 }
-.storedThoughts button,
-.thoughtCard button {
+.storedThoughts button {
   background-color: rgb(34, 33, 33);
   color: #fff;
   margin: 0.5rem;
 }
-.storedThoughts button:hover, .storedThoughts button:focus,
-.thoughtCard button:hover,
-.thoughtCard button:focus {
+.storedThoughts button:hover, .storedThoughts button:focus {
   background-color: rgb(235, 234, 231);
   color: rgb(34, 33, 33);
   cursor: pointer;
 }
-.storedThoughts ul,
-.thoughtCard ul {
+.storedThoughts ul {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -498,93 +493,105 @@ header .imgContainer img {
   margin: 0 auto;
   padding: 0;
 }
-.storedThoughts p,
-.thoughtCard p {
+.storedThoughts p {
   color: #fff;
   font-size: 0.85rem;
   line-height: 0.95rem;
 }
-.storedThoughts li,
-.thoughtCard li {
+.storedThoughts li {
   border-radius: 30px;
   padding: 0.5rem 0.5rem;
   margin: 0.75rem 0.5rem;
   width: 30vw;
 }
-.storedThoughts li:hover, .storedThoughts li:focus,
-.thoughtCard li:hover,
-.thoughtCard li:focus {
+.storedThoughts li:hover, .storedThoughts li:focus {
   box-shadow: 0.1rem 0.1rem 1rem #fff;
   cursor: crosshair;
   transition: 0.2s;
   border: 1px solid rgb(235, 234, 231);
 }
 .storedThoughts li h3,
-.storedThoughts li h4,
-.thoughtCard li h3,
-.thoughtCard li h4 {
+.storedThoughts li h4 {
   color: rgb(235, 234, 231);
   padding: 1rem;
   margin: 0.5rem auto;
 }
-.storedThoughts .wildcard,
-.thoughtCard .wildcard {
+.storedThoughts .wildcard {
   font-style: italic;
   text-transform: uppercase;
 }
-.storedThoughts .jokeContainer,
-.thoughtCard .jokeContainer {
+.storedThoughts .jokeContainer {
   max-width: 100%;
   word-wrap: break-word;
 }
-.storedThoughts .imgSearchContainer,
-.thoughtCard .imgSearchContainer {
+.storedThoughts .imgSearchContainer {
   max-width: 50%;
   margin: 0 auto 1rem auto;
 }
-.storedThoughts .imgSearchContainer .imgContainer,
-.thoughtCard .imgSearchContainer .imgContainer {
+.storedThoughts .imgSearchContainer .imgContainer {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0.2rem;
 }
-.storedThoughts .imgSearchContainer .imgContainer img,
-.thoughtCard .imgSearchContainer .imgContainer img {
+.storedThoughts .imgSearchContainer .imgContainer img {
   display: block;
   max-width: 100%;
   border-radius: 30px;
 }
-.storedThoughts a,
-.thoughtCard a {
+.storedThoughts a {
   background-color: rgb(34, 33, 33);
   color: #fff;
   margin: 0.5rem;
   padding: 0.5rem;
   border-radius: 30px;
 }
-.storedThoughts a:hover, .storedThoughts a:focus,
-.thoughtCard a:hover,
-.thoughtCard a:focus {
+.storedThoughts a:hover, .storedThoughts a:focus {
   background-color: rgb(235, 234, 231);
   color: rgb(34, 33, 33);
   cursor: pointer;
 }
 
-.userThoughts {
+.userThoughts ul {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: 4rem auto;
-  padding: 0;
-  max-width: 100%;
+  max-width: 90%;
+  border-radius: 30px;
+  padding: 1.5rem 0;
+  background-color: rgb(33, 106, 241);
+}
+.userThoughts ul li {
+  max-width: 80%;
   background-color: rgb(34, 33, 33);
   border-radius: 30px;
-  padding: 1rem;
+  padding: 1rem 1.5rem;
 }
-.userThoughts .contentContainer {
+.userThoughts ul li .imgContainer {
+  border-radius: 30px;
+  max-width: 50%;
+  margin: 1rem auto;
+}
+.userThoughts ul li .imgContainer img {
+  max-width: 100%;
+  border-radius: 30px;
+}
+.userThoughts ul .contentContainer {
   max-width: 80%;
+}
+.userThoughts ul button {
+  margin: 1rem;
+}
+.userThoughts ul p {
+  color: #fff;
+  font-size: 0.85rem;
+  line-height: 0.95rem;
+}
+.userThoughts ul h3,
+.userThoughts ul p {
+  padding: 0.5rem 0.75rem;
 }
 
 .thoughtForm {

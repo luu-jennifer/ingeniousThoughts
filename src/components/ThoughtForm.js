@@ -5,11 +5,36 @@ import { useEffect, useState } from "react";
 import { getDatabase, push, ref } from "firebase/database";
 
 import Alert from "./Alert";
+import axios from "axios";
 
 
 
 // component to add thoughts to the database
 const ThoughtForm = (props) => {
+    //TODO: search for an image url for thought post from a call from an API
+    // 1. Add ImgSearch API here and push info to firebase to be rendered on the DOM
+  const [imgUrl, setImgUrl] = useState('');
+  const [altText, setAltText] = useState('');
+
+  useEffect(() => {
+    axios({
+      // api call to get an image url from unsplash
+      url: 'https://api.unsplash.com/photos/random',
+      method: 'GET',
+      dataResponse: 'json',
+      params: {
+          client_id: 'oc3aiu5YQIwIlbFho-eQ1bTkVtZTwqmVgSMNcAeFJ-k',
+          query: 'funny',
+        }
+    })
+    .then( (res) => {
+      setImgUrl(res.data.urls.regular);
+      setAltText(res.data.alt_description);
+      // console.log(res.data, 'res.data');
+    })
+    //TODO: handle error from Axios docs
+  }, []);
+
   // state variables that will hold the user's input from the form
   const [newThought, setNewThought] = useState("");
 
@@ -41,6 +66,10 @@ const ThoughtForm = (props) => {
         time: props.passedTime,
         timestamp: Date.now(),
         mode: props.mode,
+        image: {
+          imgUrl: imgUrl,
+          altText: altText,
+        },
       };
       push(dbRef, obj);
       // clear the input field
@@ -77,8 +106,6 @@ const ThoughtForm = (props) => {
     // set the color state to the color name at the random index
     setColor(colorNames[randomNum]);
   };
-
-  //TODO: search for an image url for thought post from a call from an API
 
   // // Create a function to generate a unique userId for visiting users
   // const generateUserId = () => {

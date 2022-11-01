@@ -1,4 +1,3 @@
-// // import axios from "axios";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import ImgSearch from "./ImgSearch";
@@ -16,6 +15,7 @@ const Joke = () => {
   })
   .then( (res) => {
     setJoke(res.data.joke);
+    console.log(res.data.joke, 'res.data.joke');
   })
   //handle error from Axios docs
   .catch(function (error) {

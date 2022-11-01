@@ -1,8 +1,7 @@
 //storedThoughts
 @use "./variables" as *;
 
-.storedThoughts,
-.thoughtCard {
+.storedThoughts{
   margin: 3rem auto;
   button {
     background-color: $black;
@@ -88,19 +87,45 @@
   }
 }
 
-.userThoughts {
+.userThoughts ul {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: 4rem auto;
-  padding: 0;
-  max-width: 100%;
-  background-color: $black;
+  max-width: 90%;
   border-radius: 30px;
-  padding: 1rem;
+  padding: 1.5rem 0;
+  background-color: $quaternaryColor;
+  li {
+    max-width: 80%;
+    background-color: $black;
+    border-radius: 30px;
+    padding: 1rem 1.5rem;
+    .imgContainer {
+      border-radius: 30px;
+      max-width: 50%;
+      margin: 1rem auto;
+      img {
+        max-width: 100%;
+        border-radius: 30px;
+      }
+    }
+  }
   .contentContainer {
     max-width: 80%;
+  }
+  button {
+    margin: 1rem;
+  }
+  p {
+    color: $white;
+    font-size: .85rem;
+    line-height: .95rem;
+  }
+  h3,
+  p {
+    padding: .5rem .75rem;
   }
 }
 

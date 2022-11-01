@@ -96,3 +96,8 @@ export default App;
 // 7. update readme
 // 8. Add logic to form to add an image from API to the thought
 // 10. Add Dark Mode and default to visitor's preference
+  // 11. create a function to random generate image url+alt from the firebase images that are stored in the database for the Random Joke care
+    // 12. create a secondary firebase database to store the image urls and alt text
+  // 13. set 3 thoughts to be displayed on the page by default from firebase
+  // 14. create a function to get the user's location and display the weather for that location
+
