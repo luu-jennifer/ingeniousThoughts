@@ -1,13 +1,12 @@
-import "../partials/_storedThoughts.scss";
+import { Link } from 'react-router-dom';
 // firebase config details
 import firebaseConfig from "../firebase";
 // NPM modules
 import { useState, useEffect } from "react";
-import { getDatabase, onValue, ref, remove} from "firebase/database";
+import { getDatabase, onValue, ref, remove, runTransaction, update } from "firebase/database";
 import Joke from "./apis/Joke";
 
-//
-const StoredThoughts = () => {
+const StoredThoughts = (props) => {
   // state
   const [thoughts, setThoughts] = useState([]);
   // variable to hold the database values
@@ -26,12 +25,18 @@ const StoredThoughts = () => {
       // loop through the data
       for (let key in data) {
         let dataKey = data[key];
+        let dataKeyImg = data[key].image;
         // push the data into the array
         newState.push({ 
           key: key, 
           thought: dataKey.thought, 
           time: dataKey.time, 
-          favoriteCount: dataKey.favoriteCount
+          favoriteCount: dataKey.favoriteCount,
+          userId: dataKey.userId,
+          mode: dataKey.mode,
+          mood: dataKey.mood,
+          imgUrl: dataKeyImg.imgUrl,
+          altText: dataKeyImg.altText,
         });
       }
       // set the state to the array
@@ -45,7 +50,19 @@ const StoredThoughts = () => {
     remove(ref(database, key));
   };
 
-
+  //create a function to update favoriteCount
+  const updateFavoriteCount = (key) => {
+  const postRef = ref(database, key);
+  runTransaction(postRef, (post) => {
+    console.log(post, 'post');
+    if (post) {
+      if (post.favoriteCount) {
+        post.favoriteCount++;
+        update(ref(database, key), post)
+      }
+    }
+  });
+}
 
   //render the thoughts to the DOM
   return(
@@ -54,23 +71,52 @@ const StoredThoughts = () => {
       {/* this will be the data from firebase mounted */}
       <ul>
         {
-        /* //loop though the array of thoughts and render each thought to the DOM */
-          thoughts.map( ( { key, thought, time, favoriteCount } ) => {
+          //write a ternary operator to check if there are thoughts
+          thoughts.length > 0 ?
+          // if there are thoughts, map through them
+          /* //loop though the array of thoughts and render each thought to the DOM */
+          thoughts.map( ( { key, thought, time, favoriteCount, userId, mood, imgUrl, altText } ) => {
             return(
+              
               // create a list item for each thought
-              <li key={key}>
+              <li
+              style={{border: `.75rem solid ${mood}`}}
+              key={key}>
                 <h3>{thought}</h3>
-                <div className="favCount">{favoriteCount} ⭐️</div>
+                <div className="imgSearchContainer">
+                  <div className="imgContainer">
+                    <img src={imgUrl} alt={altText} />
+                  </div>
+                </div>
 
+                {/* create button to increase fav counter */}
+                <button
+                  style={{border: `.1rem solid ${mood}`}}
+                  onClick={() => updateFavoriteCount(key, favoriteCount)}
+                  >{favoriteCount} ⭐️
+                </button>
 
                 {/* //create a button to delete the thought */}
-                <button onClick={() => deleteThought(key)}>Delete</button>
+                <button 
+                  style={{border: `.1rem solid ${mood}`}}
+                  onClick={() => deleteThought(key)}>Delete</button>
+                <p>Posted by: 
+                  <Link 
+                  style={{border: `.1rem solid ${mood}`}}
+                  to={`/thinker/${userId}`}> { userId }</Link>
+                </p>
                 <p>{time}</p>
               </li>
             )
           })
+          // if there are no thoughts, display a message
+          : <h3 className="alert">There are no thoughts to display</h3>
         }
-        <Joke />
+        {/* wildcard */}
+        <li id="randomThought" className="removeWildcard">
+          <Joke />
+          <p>{props.passedTime}</p>
+        </li>
       </ul>
     </section>
   )

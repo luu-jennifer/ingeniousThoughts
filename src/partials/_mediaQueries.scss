@@ -2,7 +2,7 @@
 
 @media (max-width: 1100px) {
   html {
-    font-size: 90%;
+    font-size: 100%;
   }
   .thoughtForm {
     max-width: 100%;
@@ -17,16 +17,28 @@
       }
     }
   }
+  .storedThoughts ul li {
+    width: 100%;
+  }
+  
+  .about .socialAccContainer img 
+  {
+    width: 2.5rem;
+    }
+
 }
 
 @media (max-width: 610px) {
   html {
-    font-size: 60%;
+    font-size: 70%;
+  }
+  .App {
+    max-width: 90%;
   }
 }
 
 @media (max-width: 300px) {
   html {
-    font-size: 40%;
+    font-size: 60%;
   }
 }

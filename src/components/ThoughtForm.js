@@ -1,24 +1,63 @@
 // config details for Firebase database
 import firebaseConfig from "../firebase";
 // NPM modules
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getDatabase, push, ref } from "firebase/database";
+
+import Alert from "./Alert";
+import axios from "axios";
 
 
 
 // component to add thoughts to the database
-const ThoughtForm = () => {
+const ThoughtForm = (props) => {
+  const [imgUrl, setImgUrl] = useState('');
+  const [altText, setAltText] = useState('');
+  useEffect(() => {
+    axios({
+      // api call to get an image url from unsplash
+      url: 'https://api.unsplash.com/photos/random',
+      method: 'GET',
+      dataResponse: 'json',
+      params: {
+          client_id: 'oc3aiu5YQIwIlbFho-eQ1bTkVtZTwqmVgSMNcAeFJ-k',
+          query: 'funny',
+        }
+    })
+    .then( (res) => {
+      setImgUrl(res.data.urls.regular);
+      setAltText(res.data.alt_description);
+      // console.log(res.data, 'res.data');
+    })
+    //handle error from Axios docs
+    .catch (function (error) {
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        console.error(error.response.data);
+        console.error(error.response.status);
+        console.error(error.response.headers);
+      } else if (error.request) {
+        // The request was made but no response was received
+        // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+        // http.ClientRequest in node.js
+        console.error(error.request);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.error('Error', error.message);
+      }
+      console.error(error.config);
+    });
+  }, []);
+
   // state variables that will hold the user's input from the form
   const [newThought, setNewThought] = useState("");
+  //variable to set the alert
+  const [alert, setAlert] = useState({show: true, msg: "", type: ""});
   // variable to hold the database values
   const database = getDatabase(firebaseConfig);
   // variable to hold the database reference
   const dbRef = ref(database);
-
-  //time variables
-  const date = new Date();
-  const time = date.toString();
-
   //create a function to handle change from the user's input
   const handleChange = (e) => {
     // set the state to the user's input
@@ -32,32 +71,43 @@ const ThoughtForm = () => {
     if (newThought !== "") {
       // push the user's input to the database
       const obj = {
+        key: userId,
+        favoriteCount: 1,
+        userId: userId,
         thought: newThought,
         mood: color,
-        time: time,
-        timestamp: Date.now()
+        time: props.passedTime,
+        timestamp: Date.now(),
+        mode: props.mode,
+        image: {
+          imgUrl: imgUrl,
+          altText: altText,
+        },
       };
       push(dbRef, obj);
       // clear the input field
       setNewThought("");
+      // set the alert-thanks
+      setAlert({show: true, msg: "Thank you for your thought!", type: "thanks"});
     } else {
       // Prevent empty submission. alert the user to enter a thought
-      alert("Please type in your thought.");
+      setAlert({show: true, msg: "Please enter a thought", type: "empty"});
     };
+  };
+
+  // create a function to remove the alert
+  const showAlert = (show = false, type = '', msg = '') => {
+    setAlert({show, type, msg});
   };
 
 
   // mood color change
-
   //create variable to store color names
   const colorNames = ['Tomato', 'Blue', 'Turquoise', 'Indigo', 'Orchid', 'Black', 'Salmon'];
-
   // create state variable to store the color
-  const [color, setColor] = useState('Black');
-
+  const [color, setColor] = useState('Indigo');
   // create variable to store the color the background color of .storedThoughts section will be changed to
   const moodColor = {backgroundColor: color};
-
   // create a function to change the color
   const changeColor = () => {
     // create a variable to store a random number
@@ -66,15 +116,33 @@ const ThoughtForm = () => {
     setColor(colorNames[randomNum]);
   };
 
+// Generating a unique user id
+  const uid = () => {
+    return `thinker-${Date.now().toString(36)}${Math.random().toString(36).substring(2)}`;
+  };
+  // // Create state variable to store the userId from the user's Local Storage
+  const [userId, setUserId] = useState(localStorage.getItem('userId'));
+  useEffect(() => {
+    // Set new unique user id to localStorage if none found
+    if (!localStorage.getItem('thinkerUserId')) {
+      // Generate new uid using the function above
+      const userId = uid();
+      // Sets uid into localStorage
+      localStorage.setItem('thinkerUserId', userId);
+    }
+  // Set the userId state to the value in localStorage
+  setUserId(localStorage.getItem('thinkerUserId'));
+  }, []);
+
   return(
     <section className="thoughtForm">
       <div 
-        className="Container"
-        style={moodColor}
-      >
-
+        className="container"
+        style={moodColor}>
+      
       <div className="moodColor">
-        <p>Pick a Color to Describe your Mood: {color}</p>
+        <p>Pick a Color to Describe your Mood:</p>
+        <p>{color}</p>
           {
             colorNames.map((colorName) => {
               return (
@@ -82,11 +150,11 @@ const ThoughtForm = () => {
                   key={colorName} 
                   onClick={() => setColor(colorName)}>{colorName}
                 </button>
-                );
-              })
-              //random color button
-            }
-            <button 
+              );
+            })
+          }
+          {/* //random color button */}
+          <button 
             onClick={changeColor}>Random Color</button>
           </div>
 
@@ -101,18 +169,14 @@ const ThoughtForm = () => {
             placeholder="Enter your thought here*"
             onChange={handleChange}
             // set the value to the state which will be the user's input then clear the input field
-            value={newThought}
-            />
+            value={newThought}/>
 
           {/* create button to submit the form */}
           <button onClick={handleSubmit}>Add Thought</button>
+          {alert.show && <Alert {...alert} removeAlert={showAlert} />}
         </form>
-
-
-
-
-      </div>
-    </section>
+      </div> {/* .container ends */}
+    </section> //.thoughtForm section ends
   )
 }
 

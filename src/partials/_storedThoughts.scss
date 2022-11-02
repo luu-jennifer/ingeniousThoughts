@@ -1,56 +1,133 @@
 //storedThoughts
 @use "./variables" as *;
 
-.storedThoughts {
+.storedThoughts{
+  margin: 3rem auto;
   button {
-    border: 1px solid $quaternaryColor;
     background-color: $black;
     color: $white;
+    margin: .5rem;
     &:hover,
     &:focus {
-      background-color: $quaternaryColor;
+      background-color: $secondaryColor;
       color: $black;
       cursor: pointer;
     }
   }
   ul {
     display: flex;
-    flex-direction: row;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
-    justify-content: space-evenly;
-    li {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      flex-wrap: wrap;
-      border: 1px solid $primaryColor;
-      border-radius: 5px;
-      padding: .5rem .1rem;
-      margin: .5rem 1rem;
-      width: 30%;
-      background-color: $black;
-      &:hover,
-      &:focus {
-        box-shadow: .1rem .1rem 1rem $white;
-        cursor: crosshair;
-        transition: .2s;
-        border: 1px solid $secondaryColor;
-      }
-      h3 {
-        color: $secondaryColor;
-        padding: 1rem;
-        margin: .5rem auto;
-      }
-    }
+    margin: 0 auto;
+    padding: 0;
   }
   p {
     color: $white;
-    font-size: .6rem;
+    font-size: .85rem;
+    line-height: .95rem;
   }
-  .favCount {
-  color: $white;
-  padding: .5rem;
-  margin-bottom: .5rem;
+  li {
+    border-radius: 30px;
+    padding: .5rem .5rem;
+    margin: .75rem .5rem;
+    width: 30vw;
+    &:hover,
+    &:focus {
+      box-shadow: .1rem .1rem 1rem $white;
+      cursor: crosshair;
+      transition: .2s;
+      border: 1px solid $secondaryColor;
+    }
+
+    h3,
+    h4 {
+      color: $secondaryColor;
+      padding: 1rem;
+      margin: .5rem auto;
+    }
+  }
+
+  .wildcard {
+    font-style: italic;
+    text-transform: uppercase;
+  }
+
+  .jokeContainer {
+    max-width: 100%;
+    word-wrap: break-word;
+  }
+  .imgSearchContainer {
+    max-width: 50%;
+    margin: 0 auto 1rem auto;
+    .imgContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .2rem;
+    img {
+        display: block;
+        max-width: 100%;
+        border-radius: 30px;
+      }
+    }
+  }
+  a {
+    background-color: $black;
+    color: $white;
+    margin: .5rem;
+    padding: .5rem;
+    border-radius: 30px;
+    &:hover,
+    &:focus {
+      background-color: $secondaryColor;
+      color: $black;
+      cursor: pointer;
+    }
   }
 }
+
+.userThoughts ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 4rem auto;
+  max-width: 90%;
+  border-radius: 30px;
+  padding: 1.5rem 0;
+  background-color: $quaternaryColor;
+  li {
+    max-width: 80%;
+    background-color: $black;
+    border-radius: 30px;
+    padding: 1rem 1.5rem;
+    margin: 1rem auto;
+    .imgContainer {
+      border-radius: 30px;
+      max-width: 50%;
+      margin: 1rem auto;
+      img {
+        max-width: 100%;
+        border-radius: 30px;
+      }
+    }
+  }
+
+  .contentContainer {
+    max-width: 80%;
+  }
+  button {
+    margin: 1rem;
+  }
+  p {
+    color: $white;
+    font-size: .85rem;
+    line-height: .95rem;
+  }
+  h3,
+  p {
+    padding: .5rem .75rem;
+  }
+}
+

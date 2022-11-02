@@ -1,9 +1,9 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-
 //************************************************************************************************
 // pushObjects firebase project configuration
 //************************************************************************************************
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCgFXFreKWJRbDA2Ejfyj3EWr34q8QZU3A",

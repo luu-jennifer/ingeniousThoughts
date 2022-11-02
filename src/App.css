@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -266,28 +267,35 @@ html {
 
 html {
   font-size: 125%;
-  background-color: #000;
+}
+
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 p {
-  color: hotpink;
+  color: rgb(239, 178, 208);
   line-height: 1rem;
   padding-top: 0.75rem;
 }
 
 a {
-  color: rgb(175, 233, 246);
+  color: rgb(235, 234, 231);
   text-decoration: none;
 }
 a:hover, a:focus {
-  color: hotpink;
+  color: rgb(239, 178, 208);
 }
 
 h2 {
-  color: rgb(175, 233, 246);
+  color: rgb(235, 234, 231);
 }
 
-h3 {
+h3,
+h4 {
   color: #fff;
   padding: 0.23rem;
 }
@@ -295,7 +303,6 @@ h3 {
 .App {
   max-width: 80%;
   text-align: center;
-  background-color: #000;
   margin: 0 auto;
   padding: 2rem;
   font-family: "Georgia", serif;
@@ -321,24 +328,98 @@ button:hover, button:focus {
   transition: 0.15s;
 }
 
-.help {
-  text-align: left;
-  position: absolute;
-  max-width: 80%;
+.darkMode {
+  background-color: rgb(34, 33, 33);
 }
-.help p {
+.darkMode .storedThoughts li {
+  background-color: black;
+}
+
+.lightMode {
+  background-color: rgb(208, 168, 230);
+}
+.lightMode h1,
+.lightMode p {
+  color: rgb(34, 33, 33);
+}
+.lightMode .storedThoughts li {
+  background-color: rebeccaPurple;
+}
+.lightMode a {
+  color: rebeccaPurple;
+  text-decoration: none;
+  font-weight: bold;
+}
+.lightMode a:hover, .lightMode a:focus {
+  color: rgb(33, 106, 241);
+}
+
+footer {
+  text-align: center;
+  padding-top: 0.5rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav .logo a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  font-family: "Comic Sans MS", Comic Sans, cursive;
+  font-size: 2rem;
+  text-shadow: 7px 6px rgb(34, 33, 33);
   color: #fff;
-  border: none;
-  font-size: 0.9rem;
-  margin-left: 1.5rem;
+  font-weight: bold;
+  padding: 1rem;
+  background-color: rebeccaPurple;
+  border-radius: 5px;
+  max-width: 8rem;
+  max-height: 4rem;
 }
-.help button:hover, .help button:focus {
+nav .logo a:hover, nav .logo a:focus {
+  background-color: rgb(33, 106, 241);
+  text-shadow: 7px 6px rgb(34, 33, 33);
+  transition: 0.15s;
+  cursor: pointer;
+}
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+nav ul li {
+  padding: 0 1rem;
+}
+nav a {
+  padding: 0 0.25rem;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+nav .help a:hover, nav .help a:focus {
   cursor: help;
+}
+nav .toggleMode {
+  max-width: 70px;
+  min-width: 50px;
+  margin-left: 1rem;
+  background-color: rgb(33, 106, 241);
+}
+nav .toggleMode:hover, nav .toggleModefocus {
+  background-color: rgb(239, 178, 208);
+}
+nav .toggleMode .moonMode,
+nav .toggleMode .sunMode {
+  max-width: 100%;
+  border-radius: 10px;
 }
 
 header {
-  margin: 15% auto 0 auto;
-  color: hotpink;
+  margin: 10% auto 0 auto;
+  color: rgb(239, 178, 208);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -349,6 +430,7 @@ header {
 header h1 {
   padding: 1rem;
   margin: 1rem auto;
+  font-family: "Comic Sans MS", Comic Sans, cursive;
 }
 header .imgContainer {
   width: 50%;
@@ -361,54 +443,171 @@ header .imgContainer img {
   max-width: 300px;
 }
 
+.about .flexContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 4rem auto;
+}
+.about .imgContainer img {
+  border-radius: 50%;
+  border: 2px solid rgb(235, 234, 231);
+  max-width: 30vw;
+}
+.about .socialAccContainer {
+  max-width: 50%;
+  margin: 0 auto;
+}
+.about .socialAccContainer ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem auto;
+  max-width: 70%;
+}
+.about .socialAccContainer ul li {
+  max-width: 60%;
+}
+.about .socialAccContainer a img {
+  margin: 1rem auto;
+  padding: 0.3rem;
+}
+.about .socialAccContainer a img:hover, .about .socialAccContainer a img:focus {
+  background-color: rgb(239, 178, 208);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.about .contentContainer {
+  max-width: 60%;
+  margin: 2rem auto 4rem;
+}
+.about .contentContainer p {
+  margin: 1rem auto;
+  padding: 1rem;
+  text-align: left;
+}
+
+.storedThoughts {
+  margin: 3rem auto;
+}
 .storedThoughts button {
-  border: 1px solid red;
-  background-color: #000;
+  background-color: rgb(34, 33, 33);
   color: #fff;
+  margin: 0.5rem;
 }
 .storedThoughts button:hover, .storedThoughts button:focus {
-  background-color: red;
-  color: #000;
+  background-color: rgb(235, 234, 231);
+  color: rgb(34, 33, 33);
   cursor: pointer;
 }
 .storedThoughts ul {
   display: flex;
-  flex-direction: row;
   align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-.storedThoughts ul li {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-wrap: wrap;
-  border: 1px solid hotpink;
-  border-radius: 5px;
-  padding: 0.5rem 0.1rem;
-  margin: 0.5rem 1rem;
-  width: 30%;
-  background-color: #000;
-}
-.storedThoughts ul li:hover, .storedThoughts ul li:focus {
-  box-shadow: 0.1rem 0.1rem 1rem #fff;
-  cursor: crosshair;
-  transition: 0.2s;
-  border: 1px solid rgb(175, 233, 246);
-}
-.storedThoughts ul li h3 {
-  color: rgb(175, 233, 246);
-  padding: 1rem;
-  margin: 0.5rem auto;
+  margin: 0 auto;
+  padding: 0;
 }
 .storedThoughts p {
   color: #fff;
-  font-size: 0.6rem;
+  font-size: 0.85rem;
+  line-height: 0.95rem;
 }
-.storedThoughts .favCount {
+.storedThoughts li {
+  border-radius: 30px;
+  padding: 0.5rem 0.5rem;
+  margin: 0.75rem 0.5rem;
+  width: 30vw;
+}
+.storedThoughts li:hover, .storedThoughts li:focus {
+  box-shadow: 0.1rem 0.1rem 1rem #fff;
+  cursor: crosshair;
+  transition: 0.2s;
+  border: 1px solid rgb(235, 234, 231);
+}
+.storedThoughts li h3,
+.storedThoughts li h4 {
+  color: rgb(235, 234, 231);
+  padding: 1rem;
+  margin: 0.5rem auto;
+}
+.storedThoughts .wildcard {
+  font-style: italic;
+  text-transform: uppercase;
+}
+.storedThoughts .jokeContainer {
+  max-width: 100%;
+  word-wrap: break-word;
+}
+.storedThoughts .imgSearchContainer {
+  max-width: 50%;
+  margin: 0 auto 1rem auto;
+}
+.storedThoughts .imgSearchContainer .imgContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem;
+}
+.storedThoughts .imgSearchContainer .imgContainer img {
+  display: block;
+  max-width: 100%;
+  border-radius: 30px;
+}
+.storedThoughts a {
+  background-color: rgb(34, 33, 33);
   color: #fff;
+  margin: 0.5rem;
   padding: 0.5rem;
-  margin-bottom: 0.5rem;
+  border-radius: 30px;
+}
+.storedThoughts a:hover, .storedThoughts a:focus {
+  background-color: rgb(235, 234, 231);
+  color: rgb(34, 33, 33);
+  cursor: pointer;
+}
+
+.userThoughts ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 4rem auto;
+  max-width: 90%;
+  border-radius: 30px;
+  padding: 1.5rem 0;
+  background-color: rgb(33, 106, 241);
+}
+.userThoughts ul li {
+  max-width: 80%;
+  background-color: rgb(34, 33, 33);
+  border-radius: 30px;
+  padding: 1rem 1.5rem;
+  margin: 1rem auto;
+}
+.userThoughts ul li .imgContainer {
+  border-radius: 30px;
+  max-width: 50%;
+  margin: 1rem auto;
+}
+.userThoughts ul li .imgContainer img {
+  max-width: 100%;
+  border-radius: 30px;
+}
+.userThoughts ul .contentContainer {
+  max-width: 80%;
+}
+.userThoughts ul button {
+  margin: 1rem;
+}
+.userThoughts ul p {
+  color: #fff;
+  font-size: 0.85rem;
+  line-height: 0.95rem;
+}
+.userThoughts ul h3,
+.userThoughts ul p {
+  padding: 0.5rem 0.75rem;
 }
 
 .thoughtForm {
@@ -416,22 +615,23 @@ header .imgContainer img {
   max-width: 60%;
   margin: 0 auto;
 }
-.thoughtForm .Container {
+.thoughtForm .container {
   width: 100%;
   border: 10px solid #fff;
   border-radius: 30px;
   padding: 5rem;
 }
-.thoughtForm .Container label {
+.thoughtForm .container label {
   font-size: 1.5rem;
   font-weight: 600;
   color: #fff;
 }
-.thoughtForm .Container p {
+.thoughtForm .container p {
   font-size: 1.25rem;
   font-weight: 600;
   color: #fff;
-  line-height: 3rem;
+  line-height: 1.25rem;
+  padding-bottom: 1rem;
   width: 80%;
   margin: 0 auto;
 }
@@ -444,23 +644,131 @@ header .imgContainer img {
 }
 .thoughtForm button {
   padding: 0.5rem;
-  margin: 0.25rem;
+  margin: 0.5rem 0.25rem 0.5rem 0.25rem;
   border: 1px solid #fff;
   border-radius: 14px;
-  background-color: #000;
+  background-color: rgb(34, 33, 33);
   color: #fff;
 }
 .thoughtForm button:hover, .thoughtForm button:focus {
   background-color: #fff;
-  color: #000;
+  color: rgb(34, 33, 33);
 }
 .thoughtForm form {
   margin-top: 2rem;
 }
 
+.alert {
+  background-color: rebeccaPurple;
+  color: #fff;
+  padding: 0.75rem;
+  border-radius: 5px;
+  margin: 1rem;
+  width: 40%;
+  border: 1px solid #fff;
+}
+
+.alert-thanks {
+  background-color: rgb(239, 178, 208);
+  color: #fff;
+  padding: 0.75rem;
+  border-radius: 5px;
+  margin: 1rem auto;
+  width: 50%;
+  border: 1px solid #fff;
+}
+
+.alert-empty {
+  background-color: red;
+  color: #fff;
+  padding: 0.75rem;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  margin: 1rem auto;
+  width: 50%;
+}
+
+.helpContainer,
+.aboutContainer {
+  background-color: rgb(33, 106, 241);
+  width: 70%;
+  margin: 3rem auto;
+  border-radius: 30px;
+  padding: 2rem;
+}
+.helpContainer ul,
+.helpContainer p,
+.aboutContainer ul,
+.aboutContainer p {
+  text-align: left;
+  padding: 2rem;
+  border: 2px dotted rgb(239, 178, 208);
+  border-radius: 30px;
+}
+.helpContainer ul li,
+.helpContainer p li,
+.aboutContainer ul li,
+.aboutContainer p li {
+  font-family: "Comic Sans MS", Comic Sans, cursive;
+  background-color: rgb(239, 178, 208);
+  border-radius: 30px;
+  box-shadow: -20px 20px 10px;
+  margin: 1rem 0.1rem;
+  padding: 1rem 1.5rem;
+  font-weight: bold;
+  -webkit-animation: speech 5s ease-in-out infinite;
+          animation: speech 5s ease-in-out infinite;
+}
+.helpContainer ul li::before,
+.helpContainer p li::before,
+.aboutContainer ul li::before,
+.aboutContainer p li::before {
+  content: "💬  ";
+}
+@-webkit-keyframes speech {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@keyframes speech {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.aboutContainer p {
+  color: rgb(235, 234, 231);
+  font-weight: bold;
+  line-height: 1.4rem;
+}
+
+.brand {
+  text-shadow: 10px 10px 5px rgb(34, 33, 33);
+  font-family: "Comic Sans MS", Comic Sans, cursive;
+  font-weight: 900;
+  font-size: 2rem;
+  padding: 0.5rem 0.75rem;
+  margin: 0.25rem;
+  border-radius: 30px;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
 @media (max-width: 1100px) {
   html {
-    font-size: 90%;
+    font-size: 100%;
   }
   .thoughtForm {
     max-width: 100%;
@@ -475,14 +783,23 @@ header .imgContainer img {
     font-size: 1rem;
     width: 100%;
   }
+  .storedThoughts ul li {
+    width: 100%;
+  }
+  .about .socialAccContainer img {
+    width: 2.5rem;
+  }
 }
 @media (max-width: 610px) {
   html {
-    font-size: 60%;
+    font-size: 70%;
+  }
+  .App {
+    max-width: 90%;
   }
 }
 @media (max-width: 300px) {
   html {
-    font-size: 40%;
+    font-size: 60%;
   }
 }

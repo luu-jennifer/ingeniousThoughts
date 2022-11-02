@@ -1,19 +1,66 @@
 @use "./variables" as *;
 
-  .help {
-    text-align: left;
-    position: absolute;
-    max-width: 80%;
-    p {
-      color: $white;
-      border: none;
-      font-size: .9rem;
-      margin-left: 1.5rem;
-    }
-    button {
-      &:hover,
-      &:focus {
-        cursor: help;
-      }
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .logo a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    font-family: $brandFont;
+    font-size: 2rem;
+    text-shadow: 7px 6px $black;
+    color: $white;
+    font-weight: bold;
+    padding: 1rem;
+    background-color: $tertiaryColor;
+    border-radius: 5px;
+    max-width: 8rem;
+    max-height: 4rem;
+    &:hover,
+    &:focus {
+      background-color: $quaternaryColor;
+      text-shadow: 7px 6px $black;
+      transition: .15s;
+      cursor: pointer;
     }
   }
+
+  ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+    li {
+      padding: 0 1rem;
+    }
+  }
+  a  {
+    padding: 0 .25rem;
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+  .help a {
+  &:hover,
+  &:focus {
+    cursor: help;
+  }
+}
+
+.toggleMode {
+  max-width: 70px;
+  min-width: 50px;
+  margin-left: 1rem;
+  background-color: $quaternaryColor;
+  &:hover,
+  &focus {
+    background-color: $primaryColor;
+  }
+  .moonMode,
+  .sunMode {
+    max-width: 100%;
+    border-radius: 10px;
+    }
+  }
+}
