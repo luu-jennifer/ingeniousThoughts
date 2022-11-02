@@ -14,24 +14,8 @@ useEffect(() => {
   .then( (res) => {
     setJoke(res.data.joke);
   })
-  //handle error from Axios docs
-  .catch(function (error) {
-    if (error.response) {
-      // The request was made and the server responded with a status code
-      // that falls out of the range of 2xx
-      console.err(error.response.data);
-      console.err(error.response.status);
-      console.err(error.response.headers);
-    } else if (error.request) {
-      // The request was made but no response was received
-      // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-      // http.ClientRequest in node.js
-      console.err(error.request);
-    } else {
-      // Something happened in setting up the request that triggered an Error
-      console.err('Error', error.message);
-    }
-    console.err(error.config);
+  .catch (_ => {
+    alert("There's an error. Please try reloading the page.");
   });
 }, []);
 
