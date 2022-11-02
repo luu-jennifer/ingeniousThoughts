@@ -11,11 +11,8 @@ import axios from "axios";
 
 // component to add thoughts to the database
 const ThoughtForm = (props) => {
-    //TODO: search for an image url for thought post from a call from an API
-    // 1. Add ImgSearch API here and push info to firebase to be rendered on the DOM
   const [imgUrl, setImgUrl] = useState('');
   const [altText, setAltText] = useState('');
-
   useEffect(() => {
     axios({
       // api call to get an image url from unsplash
@@ -32,20 +29,35 @@ const ThoughtForm = (props) => {
       setAltText(res.data.alt_description);
       // console.log(res.data, 'res.data');
     })
-    //TODO: handle error from Axios docs
+    //handle error from Axios docs
+    .catch (function (error) {
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        console.error(error.response.data);
+        console.error(error.response.status);
+        console.error(error.response.headers);
+      } else if (error.request) {
+        // The request was made but no response was received
+        // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+        // http.ClientRequest in node.js
+        console.error(error.request);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.error('Error', error.message);
+      }
+      console.error(error.config);
+    });
   }, []);
 
   // state variables that will hold the user's input from the form
   const [newThought, setNewThought] = useState("");
-
   //variable to set the alert
   const [alert, setAlert] = useState({show: true, msg: "", type: ""});
   // variable to hold the database values
   const database = getDatabase(firebaseConfig);
   // variable to hold the database reference
   const dbRef = ref(database);
-
-
   //create a function to handle change from the user's input
   const handleChange = (e) => {
     // set the state to the user's input
@@ -89,16 +101,12 @@ const ThoughtForm = (props) => {
 
 
   // mood color change
-
   //create variable to store color names
   const colorNames = ['Tomato', 'Blue', 'Turquoise', 'Indigo', 'Orchid', 'Black', 'Salmon'];
-
   // create state variable to store the color
   const [color, setColor] = useState('Indigo');
-
   // create variable to store the color the background color of .storedThoughts section will be changed to
   const moodColor = {backgroundColor: color};
-
   // create a function to change the color
   const changeColor = () => {
     // create a variable to store a random number
@@ -107,46 +115,30 @@ const ThoughtForm = (props) => {
     setColor(colorNames[randomNum]);
   };
 
-  // // Create a function to generate a unique userId for visiting users
-  // const generateUserId = () => {
-  //   return
-  //   `thinker-${Date.now().toString(36)}${Math.random().toString(36).substring(2)}`;
-  // };
-
-  // // create a function to store the userId in localStorage if it doesn't exist
-  // const storeUserId = () => {
-  //   if (!localStorage.getItem('userId')) {
-  //     localStorage.setItem('userId', generateUserId());
-  //   }
-  // };
-
 // Generating a unique user id
-const uid = () => {
+  const uid = () => {
     return `thinker-${Date.now().toString(36)}${Math.random().toString(36).substring(2)}`;
-}
+  };
   // // Create state variable to store the userId from the user's Local Storage
   const [userId, setUserId] = useState(localStorage.getItem('userId'));
-
   useEffect(() => {
-// Set new unique user id to localStorage if none found
-if (!localStorage.getItem('thinkerUserId')) {
-    // Generate new uid using the function above
-    const userId = uid();
-    // Sets uid into localStorage
-    localStorage.setItem('thinkerUserId', userId);
-}
-// Set the userId state to the value in localStorage
-setUserId(localStorage.getItem('thinkerUserId'));
-}, []);
-
+    // Set new unique user id to localStorage if none found
+    if (!localStorage.getItem('thinkerUserId')) {
+      // Generate new uid using the function above
+      const userId = uid();
+      // Sets uid into localStorage
+      localStorage.setItem('thinkerUserId', userId);
+    }
+  // Set the userId state to the value in localStorage
+  setUserId(localStorage.getItem('thinkerUserId'));
+  }, []);
 
   return(
     <section className="thoughtForm">
       <div 
-        className="Container"
-        style={moodColor}
-      >
-
+        className="container"
+        style={moodColor}>
+      
       <div className="moodColor">
         <p>Pick a Color to Describe your Mood:</p>
         <p>{color}</p>
@@ -157,11 +149,11 @@ setUserId(localStorage.getItem('thinkerUserId'));
                   key={colorName} 
                   onClick={() => setColor(colorName)}>{colorName}
                 </button>
-                );
-              })
-              //random color button
-            }
-            <button 
+              );
+            })
+          }
+          {/* //random color button */}
+          <button 
             onClick={changeColor}>Random Color</button>
           </div>
 
@@ -176,19 +168,14 @@ setUserId(localStorage.getItem('thinkerUserId'));
             placeholder="Enter your thought here*"
             onChange={handleChange}
             // set the value to the state which will be the user's input then clear the input field
-            value={newThought}
-            />
+            value={newThought}/>
 
           {/* create button to submit the form */}
           <button onClick={handleSubmit}>Add Thought</button>
           {alert.show && <Alert {...alert} removeAlert={showAlert} />}
         </form>
-
-
-
-
-      </div>
-    </section>
+      </div> {/* .container ends */}
+    </section> //.thoughtForm section ends
   )
 }
 

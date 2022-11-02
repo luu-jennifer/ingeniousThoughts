@@ -4,7 +4,7 @@ import ThoughtForm from "./ThoughtForm";
 
 
 const Home = (props) => {
-    //time variables
+  //time variables
   const date = new Date();
   const time = date.toString();
 

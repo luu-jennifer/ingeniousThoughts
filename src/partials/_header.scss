@@ -43,9 +43,10 @@ header {
     margin: 0 auto;
     ul {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       justify-content: space-between;
       align-items: center;
+      margin: 1rem auto;
       li {
         max-width: 60%;
     }

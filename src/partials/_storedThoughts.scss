@@ -102,6 +102,7 @@
     background-color: $black;
     border-radius: 30px;
     padding: 1rem 1.5rem;
+    margin: 1rem auto;
     .imgContainer {
       border-radius: 30px;
       max-width: 50%;
@@ -112,6 +113,7 @@
       }
     }
   }
+
   .contentContainer {
     max-width: 80%;
   }

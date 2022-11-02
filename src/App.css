@@ -353,6 +353,11 @@ button:hover, button:focus {
   color: rgb(33, 106, 241);
 }
 
+footer {
+  text-align: center;
+  padding-top: 1rem;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -386,7 +391,7 @@ nav .help a:hover, nav .help a:focus {
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  font-family: Comic Sans MS, Comic Sans, cursive;
+  font-family: "Comic Sans MS", Comic Sans, cursive;
   font-size: 2rem;
   text-shadow: 7px 6px rgb(34, 33, 33);
   color: #fff;
@@ -417,7 +422,7 @@ header {
 header h1 {
   padding: 1rem;
   margin: 1rem auto;
-  font-family: Comic Sans MS, Comic Sans, cursive;
+  font-family: "Comic Sans MS", Comic Sans, cursive;
 }
 header .imgContainer {
   width: 50%;
@@ -446,9 +451,10 @@ header .imgContainer img {
 }
 .about .socialAccContainer ul {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  margin: 1rem auto;
 }
 .about .socialAccContainer ul li {
   max-width: 60%;
@@ -568,6 +574,7 @@ header .imgContainer img {
   background-color: rgb(34, 33, 33);
   border-radius: 30px;
   padding: 1rem 1.5rem;
+  margin: 1rem auto;
 }
 .userThoughts ul li .imgContainer {
   border-radius: 30px;
@@ -599,18 +606,18 @@ header .imgContainer img {
   max-width: 60%;
   margin: 0 auto;
 }
-.thoughtForm .Container {
+.thoughtForm .container {
   width: 100%;
   border: 10px solid #fff;
   border-radius: 30px;
   padding: 5rem;
 }
-.thoughtForm .Container label {
+.thoughtForm .container label {
   font-size: 1.5rem;
   font-weight: 600;
   color: #fff;
 }
-.thoughtForm .Container p {
+.thoughtForm .container p {
   font-size: 1.25rem;
   font-weight: 600;
   color: #fff;
@@ -691,6 +698,9 @@ header .imgContainer img {
   }
   .storedThoughts ul li {
     width: 100%;
+  }
+  .about .socialAccContainer img {
+    width: 2.5rem;
   }
 }
 @media (max-width: 610px) {
