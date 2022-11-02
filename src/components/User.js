@@ -1,12 +1,10 @@
 import firebaseConfig from "../firebase";
-import { getDatabase, onValue, ref, update, remove } from "firebase/database";
+import { getDatabase, onValue, ref, update, remove, runTransaction } from "firebase/database";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import ImgSearch from "./apis/ImgSearch";
 
 const User = () => {
-  //Show all the thoughts that have been posted for the UID
-
+  //Show all the thoughts that have been posted for the uid
   const { userId } = useParams();
   const [userThought, setUserThought] = useState([]);
   const database = getDatabase(firebaseConfig);
@@ -31,26 +29,6 @@ const User = () => {
             imgUrl: dataKeyImg.imgUrl,
             altText: dataKeyImg.altText,
           });
-
-
-
-        // if ( dataKey.userId !== userId || dataKey.userId === null ) {
-        //   userThoughtCard.innerHTML = `<li><h3>Sorry, this can not be found.</h3><p> Please return to the homepage ${userId}.</p></li>`;
-        // } else {
-        //   newState.push({
-        //     key: key,
-        //     thought: dataKey.thought,
-        //     time: dataKey.time,
-        //     favoriteCount: dataKey.favoriteCount,
-        //     userId: dataKey.userId,
-        //     mode: dataKey.mode,
-        //     mood: dataKey.mood,
-        //     imgUrl: dataKey.image.imgUrl,
-        //     altText: dataKey.image.altText,
-        // });
-
-
-
           setUserThought(newState); 
       }
     }
@@ -58,17 +36,19 @@ const User = () => {
 }, [dbRef, userId]);
 
 
-//FIXME: update the favorite count to use transaction() instead of update() for firebase
-// // create a function to update the favorite count
-  const [favoriteCount, setFavoriteCount] = useState(null);
+  //create a function to update favoriteCount
   const updateFavoriteCount = (key) => {
-  //update the favorite count
-  update(ref(database, key), {
-    favoriteCount: favoriteCount + 1
+  const postRef = ref(database, key);
+  runTransaction(postRef, (post) => {
+    console.log(post, 'post');
+    if (post) {
+      if (post.favoriteCount) {
+        post.favoriteCount++;
+        update(ref(database, key), post)
+      }
+    }
   });
-  //set the favorite count to the new value
-  setFavoriteCount(favoriteCount + 1);
-  };
+}
 
     // create a function to delete a thought
   const deleteThought = (key) => {

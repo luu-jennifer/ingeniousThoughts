@@ -72,6 +72,7 @@ const ThoughtForm = (props) => {
       // push the user's input to the database
       const obj = {
         key: userId,
+        favoriteCount: 1,
         userId: userId,
         thought: newThought,
         mood: color,

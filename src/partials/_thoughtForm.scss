@@ -79,3 +79,63 @@
   margin: 1rem auto;
   width: 50%;
 }
+
+.helpContainer,
+.aboutContainer {
+  background-color: $quaternaryColor;
+  width: 70%;
+  margin: 3rem auto;
+  border-radius: 30px;
+  padding: 2rem;
+  ul,
+  p {
+    text-align: left;
+    padding: 2rem;
+    border: 2px dotted $primaryColor;
+    border-radius: 30px;
+    li {
+      font-family: $brandFont;
+      background-color: $primaryColor;
+      border-radius: 30px;
+      box-shadow: -20px 20px 10px;
+      margin: 1rem .1rem;
+      padding: 1rem 1.5rem;
+      font-weight: bold;
+      animation: speech 5s ease-in-out infinite;
+      &::before {
+        content: '💬  ';
+      }
+      @keyframes speech {
+          0% {
+              transform: translateY(0px);
+            }
+          
+            50% {
+              transform: translateY(-20px);
+            }
+          
+            100% {
+              transform: translateY(0px);
+            }
+      }
+    }
+  }
+}
+
+.aboutContainer p {
+  color: $secondaryColor;
+  font-weight: bold;
+  line-height: 1.4rem;
+}
+
+.brand {
+  text-shadow: 10px 10px 5px $black;
+  font-family: $brandFont;
+  font-weight: 900;
+  font-size: 2rem;
+  padding: .5rem .75rem;
+  margin: .25rem;
+  border-radius: 30px;
+  max-width: 200px;
+  margin: 0 auto;
+}
