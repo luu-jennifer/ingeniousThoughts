@@ -10,9 +10,16 @@
 //   const [weather, setWeather] = useState([]);
 
 //   // Make an API call to get the weather data from https://open-meteo.com/en/
+
 //   useEffect(() => {
 //     console.log("weather useEffect");
 
+// TODO: REVIEW adding axios in async/await
+
+// async
+
+// await
+// let axios = 
 //   axios({
 //     url: 'https://api.open-meteo.com/v1/forecast?',
 //     method: 'GET',
@@ -27,6 +34,8 @@
 //   .then( (res) => {
 //     setWeather(res.data.daily);
 //   })
+
+
 
 // }, []);
 

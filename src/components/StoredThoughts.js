@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import firebaseConfig from "../firebase";
 // NPM modules
 import { useState, useEffect } from "react";
-import { getDatabase, onValue, ref, remove, update } from "firebase/database";
+import { getDatabase, onValue, ref, remove, runTransaction, update } from "firebase/database";
 import Joke from "./apis/Joke";
 // import ImgSearch from './apis/ImgSearch';
 
@@ -64,24 +64,54 @@ const StoredThoughts = (props) => {
 
   //FIXME: use transaction to update the favorite count
 // // create a function to update the favorite count
-  const [favoriteCount, setFavoriteCount] = useState(null);
-  const updateFavoriteCount = (key) => {
-  //update the favorite count
-  update(ref(database, key), {
-    favoriteCount: favoriteCount + 1
-  });
-  //set the favorite count to the new value
-  setFavoriteCount(favoriteCount + 1);
-  };
+  // const [favoriteCount, setFavoriteCount] = useState(null);
+  // const updateFavoriteCount = (key) => {
+  // //update the favorite count
+  // update(ref(database, key), {
+  //   favoriteCount: favoriteCount + 1
+  // });
+  // //set the favorite count to the new value
+  // setFavoriteCount(favoriteCount + 1);
+  // };
   
 
-// function toggleStar(key) {
+  const updateFavoriteCount = (key) => {
 
-//   const postRef = ref(database, key);
+    // console.log('updateFavoriteCount func', key);
+
+      const postRef = ref(database, key);
+      console.log(postRef, "postRef");
+
+  runTransaction(postRef, (post) => {
+    if (post) {
+      console.log(post, "post");
+      if (post.favoriteCount) {
+        post.favoriteCount++;
+        update(ref(database, key), post)
+
+      //   post.stars[uid] = null;
+      // } else {
+      //   post.starCount++;
+      //   if (!post.stars) {
+      //     post.stars = {};
+      //   }
+      //   post.stars[uid] = true;
+        console.log('checking...', post.favoriteCount);
+      }
+    }
+    // return post;
+  });
+}
+
+// import { getDatabase, ref, runTransaction } from "firebase/database";
+
+// function toggleStar(uid) {
+//   const db = getDatabase();
+//   const postRef = ref(db, '/posts/foo-bar-123');
 
 //   runTransaction(postRef, (post) => {
 //     if (post) {
-//       if (post.favoriteCount && post.favouriteCount[key]) {
+//       if (post.stars && post.stars[uid]) {
 //         post.starCount--;
 //         post.stars[uid] = null;
 //       } else {
@@ -95,7 +125,6 @@ const StoredThoughts = (props) => {
 //     return post;
 //   });
 // }
-
 
 
 

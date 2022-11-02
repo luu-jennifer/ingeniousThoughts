@@ -3,6 +3,7 @@ const Help = () => {
   return (
     <section className="help">
       <h2>Have a question?</h2>
+      <h3>Here are some commonly asked questions:</h3>
       <p>Type in your thought and click the button to share them with the world.</p>
       <p>Click the delete button to delete your thoughts.</p>
     </section>
