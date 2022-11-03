@@ -40,7 +40,6 @@ const User = () => {
   const updateFavoriteCount = (key) => {
   const postRef = ref(database, key);
   runTransaction(postRef, (post) => {
-    console.log(post, 'post');
     if (post) {
       if (post.favoriteCount) {
         post.favoriteCount++;

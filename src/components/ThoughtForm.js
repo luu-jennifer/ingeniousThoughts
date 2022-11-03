@@ -13,6 +13,11 @@ import axios from "axios";
 const ThoughtForm = (props) => {
   const [imgUrl, setImgUrl] = useState('');
   const [altText, setAltText] = useState('');
+
+  // use state for API error
+  const message = <h3 className="alert">No images available currently. Add a text only thought now or come back later. 🤙</h3>;
+  const [errorMessage, setErrorMessage] = useState("");
+  // const apiKey = "tvNUjjQXoIzuSZjcjR5iGV3CZeg9rj4w3SRqr4lSerE"
   useEffect(() => {
     axios({
       // api call to get an image url from unsplash
@@ -20,34 +25,19 @@ const ThoughtForm = (props) => {
       method: 'GET',
       dataResponse: 'json',
       params: {
-          client_id: 'oc3aiu5YQIwIlbFho-eQ1bTkVtZTwqmVgSMNcAeFJ-k',
+          // client_id: apiKey,
           query: 'funny',
         }
     })
     .then( (res) => {
       setImgUrl(res.data.urls.regular);
       setAltText(res.data.alt_description);
-      // console.log(res.data, 'res.data');
     })
     //handle error from Axios docs
-    .catch (function (error) {
-      if (error.response) {
-        // The request was made and the server responded with a status code
-        // that falls out of the range of 2xx
-        console.error(error.response.data);
-        console.error(error.response.status);
-        console.error(error.response.headers);
-      } else if (error.request) {
-        // The request was made but no response was received
-        // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-        // http.ClientRequest in node.js
-        console.error(error.request);
-      } else {
-        // Something happened in setting up the request that triggered an Error
-        console.error('Error', error.message);
-      }
-      console.error(error.config);
+    .catch (_ => {
+      setErrorMessage(message);
     });
+  // eslint-disable-next-line
   }, []);
 
   // state variables that will hold the user's input from the form
@@ -174,6 +164,7 @@ const ThoughtForm = (props) => {
           {/* create button to submit the form */}
           <button onClick={handleSubmit}>Add Thought</button>
           {alert.show && <Alert {...alert} removeAlert={showAlert} />}
+          {errorMessage}
         </form>
       </div> {/* .container ends */}
     </section> //.thoughtForm section ends

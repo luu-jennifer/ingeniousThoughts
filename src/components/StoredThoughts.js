@@ -54,7 +54,6 @@ const StoredThoughts = (props) => {
   const updateFavoriteCount = (key) => {
   const postRef = ref(database, key);
   runTransaction(postRef, (post) => {
-    console.log(post, 'post');
     if (post) {
       if (post.favoriteCount) {
         post.favoriteCount++;
@@ -110,7 +109,8 @@ const StoredThoughts = (props) => {
             )
           })
           // if there are no thoughts, display a message
-          : <h3 className="alert">There are no thoughts to display</h3>
+          : 
+          <h3 className="alert">No added Thinker thoughts to display. Be the first one now.</h3>
         }
         {/* wildcard */}
         <li id="randomThought" className="removeWildcard">

@@ -1,6 +1,16 @@
 @use "./variables" as *;
 
-@media (max-width: 1100px) {
+@media (max-width: 1400px) {
+  .storedThoughts a {
+    font-size: .6rem;
+  }
+  .helpContainer,
+  .aboutContainer {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1200px) {
   html {
     font-size: 100%;
   }
@@ -24,20 +34,31 @@
   .about .socialAccContainer img 
   {
     width: 2.5rem;
-    }
+    }    
 
+// nav
+  nav {
+    flex-direction: column;
+    .navContainer {
+      padding: 1.5rem;
+    }
+  }
 }
 
 @media (max-width: 610px) {
   html {
-    font-size: 70%;
+    font-size: 50%;
   }
   .App {
     max-width: 90%;
   }
+  nav .toggleMode {
+    max-width: 50px;
+  }
 }
 
-@media (max-width: 300px) {
+
+@media (max-width: 320px) {
   html {
     font-size: 60%;
   }

@@ -2,9 +2,16 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const ImgSearch = () => {
-// create a state to hold the image
-const [image, setImage] = useState(null);
-const [alt, setAlt] = useState(null);
+  // create a state to hold the image
+  const [image, setImage] = useState(null);
+  const [alt, setAlt] = useState(null);
+
+  // API error message handling and display
+  const message = document.getElementsByClassName("imgContainer");
+  message.innerHTML = <img src="https://placeimg.com/640/480/any" alt="This is random." />
+  const [errorMessage, setErrorMessage] = useState("");
+
+  // const apiKey2 = "BaDbEn9Gc7pvnCGJdIHICvDF1Nd_i9gYbjB-4qTzp0g"
 
 useEffect(() => {
   axios({
@@ -13,7 +20,7 @@ useEffect(() => {
     method: 'GET',
     dataResponse: 'json',
     params: {
-      client_id: 'oc3aiu5YQIwIlbFho-eQ1bTkVtZTwqmVgSMNcAeFJ-k',
+      // client_id: apiKey2,
       query: 'funny',
       }
   })
@@ -22,14 +29,16 @@ useEffect(() => {
     setAlt(res.data.alt_description);
   })
   .catch (_ => {
-    alert("There's an error. Please try reloading the page.");
-  });
-}, []);
+          setErrorMessage(message.innerHTML);
+    });
+  // eslint-disable-next-line
+  }, []);
 
   return (
     <div className="imgSearchContainer">
       <div className="imgContainer">
         <img src={image} alt={alt} />
+        {errorMessage}
       </div>
     </div>
   )
