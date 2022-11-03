@@ -6,11 +6,6 @@ const ImgSearch = () => {
   const [image, setImage] = useState(null);
   const [alt, setAlt] = useState(null);
 
-  // API error message handling and display
-  const message = document.getElementsByClassName("imgContainer");
-  message.innerHTML = <img src="https://placeimg.com/640/480/any" alt="This is random." />
-  const [errorMessage, setErrorMessage] = useState("");
-
   const apiKey2 = "BaDbEn9Gc7pvnCGJdIHICvDF1Nd_i9gYbjB-4qTzp0g"
 
 useEffect(() => {
@@ -28,9 +23,9 @@ useEffect(() => {
     setImage(res.data.urls.regular);
     setAlt(res.data.alt_description);
   })
-  .catch (_ => {
-          setErrorMessage(message.innerHTML);
-    });
+  .catch(function (error) {
+      alert("No images available currently. Add a text only thought or come back later");
+  });
   // eslint-disable-next-line
   }, []);
 
@@ -38,7 +33,6 @@ useEffect(() => {
     <div className="imgSearchContainer">
       <div className="imgContainer">
         <img src={image} alt={alt} />
-        {errorMessage}
       </div>
     </div>
   )

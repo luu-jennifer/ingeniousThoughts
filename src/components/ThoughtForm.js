@@ -15,8 +15,6 @@ const ThoughtForm = (props) => {
   const [altText, setAltText] = useState('');
 
   // use state for API error
-  const message = <h3 className="alert">No images available currently. Add a text only thought now or come back later. 🤙</h3>;
-  const [errorMessage, setErrorMessage] = useState("");
   const apiKey = "tvNUjjQXoIzuSZjcjR5iGV3CZeg9rj4w3SRqr4lSerE"
   useEffect(() => {
     axios({
@@ -33,11 +31,10 @@ const ThoughtForm = (props) => {
       setImgUrl(res.data.urls.regular);
       setAltText(res.data.alt_description);
     })
-    //handle error from Axios docs
-    .catch (_ => {
-      setErrorMessage(message);
+    .catch(function (error) {
+        alert("No images available currently. Add a text only thought or come back later");
     });
-  // eslint-disable-next-line
+    // eslint-disable-next-line
   }, []);
 
   // state variables that will hold the user's input from the form
@@ -164,7 +161,6 @@ const ThoughtForm = (props) => {
           {/* create button to submit the form */}
           <button onClick={handleSubmit}>Add Thought</button>
           {alert.show && <Alert {...alert} removeAlert={showAlert} />}
-          {errorMessage}
         </form>
       </div> {/* .container ends */}
     </section> //.thoughtForm section ends
