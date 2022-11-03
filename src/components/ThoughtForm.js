@@ -17,7 +17,7 @@ const ThoughtForm = (props) => {
   // use state for API error
   const message = <h3 className="alert">No images available currently. Add a text only thought now or come back later. 🤙</h3>;
   const [errorMessage, setErrorMessage] = useState("");
-  // const apiKey = "tvNUjjQXoIzuSZjcjR5iGV3CZeg9rj4w3SRqr4lSerE"
+  const apiKey = "tvNUjjQXoIzuSZjcjR5iGV3CZeg9rj4w3SRqr4lSerE"
   useEffect(() => {
     axios({
       // api call to get an image url from unsplash
@@ -25,7 +25,7 @@ const ThoughtForm = (props) => {
       method: 'GET',
       dataResponse: 'json',
       params: {
-          // client_id: apiKey,
+          client_id: apiKey,
           query: 'funny',
         }
     })

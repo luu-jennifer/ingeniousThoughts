@@ -11,7 +11,7 @@ const ImgSearch = () => {
   message.innerHTML = <img src="https://placeimg.com/640/480/any" alt="This is random." />
   const [errorMessage, setErrorMessage] = useState("");
 
-  // const apiKey2 = "BaDbEn9Gc7pvnCGJdIHICvDF1Nd_i9gYbjB-4qTzp0g"
+  const apiKey2 = "BaDbEn9Gc7pvnCGJdIHICvDF1Nd_i9gYbjB-4qTzp0g"
 
 useEffect(() => {
   axios({
@@ -20,7 +20,7 @@ useEffect(() => {
     method: 'GET',
     dataResponse: 'json',
     params: {
-      // client_id: apiKey2,
+      client_id: apiKey2,
       query: 'funny',
       }
   })
